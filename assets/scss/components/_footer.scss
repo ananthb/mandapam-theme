@@ -6,6 +6,8 @@
   background: darken($secondary, 10%);
 
   .logo {
-    width: 64px;
+    img {
+      max-height: 2.5rem;
+    }
   }
 }
