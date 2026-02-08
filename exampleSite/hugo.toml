@@ -1,0 +1,51 @@
+baseURL = "https://example.com/"
+languageCode = "en-us"
+title = "Sri Lakshmi Mandapam"
+theme = ["github.com/ananthb/mandapam-theme"]
+
+enableGitInfo = true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[params]
+  google_analytics_id = ""
+  github_repository = "ananthb/mandapam-theme"
+  [params.homepage_meta_tags]
+    meta_description = "Sri Lakshmi Mandapam - A beautiful venue for weddings and celebrations"
+    meta_og_title = "Sri Lakshmi Mandapam"
+    meta_og_type = "website"
+    meta_og_url = "https://example.com"
+    meta_og_image = "https://example.com/images/venue.jpg"
+    meta_og_description = "Sri Lakshmi Mandapam - A beautiful venue for weddings and celebrations"
+    meta_twitter_card = "summary_large_image"
+    meta_twitter_site = "@example"
+    meta_twitter_creator = "@example"
+
+[menus]
+  [[menus.main]]
+    name = "Home"
+    url = "/"
+    weight = 10
+  [[menus.main]]
+    name = "Venue"
+    url = "/venue/"
+    weight = 20
+  [[menus.main]]
+    name = "Facilities"
+    url = "/facilities/"
+    weight = 30
+  [[menus.main]]
+    name = "Gallery"
+    url = "/gallery/"
+    weight = 40
+  [[menus.main]]
+    name = "Contact"
+    url = "/contact/"
+    weight = 50
+
+[module]
+  [[module.imports]]
+    path = "github.com/ananthb/mandapam-theme"
