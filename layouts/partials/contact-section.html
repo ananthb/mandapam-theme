@@ -10,7 +10,7 @@
 
         <div class="row">
             {{/* Left column: Map, Address, Contact buttons */}}
-            <div class="col-md-5 mb-3">
+            <div class="col-md-7 mb-3">
                 {{ with $contact.map }}
                 <div class="google-maps-iframe mb-3">
                     {{ .iframe | safeHTML }}
@@ -63,7 +63,7 @@
             </div>
 
             {{/* Right column: Form */}}
-            <div class="col-md-7">
+            <div class="col-md-5">
                 {{ with $contact.form }}
                 <div class="contact-form-container">
                     <h3><strong>Send us a Message</strong></h3>
