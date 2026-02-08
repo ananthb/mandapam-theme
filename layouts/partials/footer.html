@@ -4,8 +4,8 @@
       <div class="col-md-1">
         <div class="logo">
           <a href="{{ .Site.BaseURL }}">
-            {{- $logo := (resources.Get "logos/shakthi-palace-logo-transparent.png").Resize "64x #fff" -}}
-            <img alt="Shakthi Palace Logo" src="{{ $logo.RelPermalink }}" width="{{ $logo.Width }}"
+            {{- $logo := (resources.Get (default "logos/logo.png" .Site.Params.logo)).Resize "32x" -}}
+            <img alt="{{ .Site.Title }} Logo" src="{{ $logo.RelPermalink }}" width="{{ $logo.Width }}"
               height="{{ $logo.Height }}">
           </a>
         </div>
@@ -44,7 +44,7 @@
         </div>
       </div>
       <div class="col-md-2">
-        <p class="text-white">&copy; {{ now.Format "2006" }} Shakthi Palace</p>
+        <p class="text-white">&copy; {{ now.Format "2006" }} {{ .Site.Title }}</p>
         {{ if ne .GitInfo nil }}
         <p class="text-muted">
           <small class="font-weight-light">

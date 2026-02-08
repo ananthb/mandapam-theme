@@ -38,7 +38,7 @@ style="background-image: url('{{ $bg.RelPermalink }}');">
 <div class="container pt-8 pb-8 pb-md-14 pt-md-14">
   <div class="row justify-content-center">
     <div class="col-12">
-      <h2 class="text-center mb-3">Shakthi Palace Offerings</h2>
+      <h2 class="text-center mb-3">{{ default "Our Services" .Site.Params.services_heading }}</h2>
     </div>
     {{ range (sort $services.Resources ".Params.weight") }}
     <div class="col-12 col-md-4 mb-1">

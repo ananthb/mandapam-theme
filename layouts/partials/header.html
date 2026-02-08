@@ -2,8 +2,8 @@
   <div class="container">
     <div class="logo">
       <a href="{{ .Site.BaseURL }}">
-        {{- $logo := (resources.Get "logos/shakthi-palace-logo-transparent.png").Resize "100x" -}}
-        <img alt="Shakthi Palace Logo" src="{{ $logo.RelPermalink }}" width="{{ $logo.Width }}"
+        {{- $logo := (resources.Get (default "logos/logo.png" .Site.Params.logo)).Resize "48x" -}}
+        <img alt="{{ .Site.Title }} Logo" src="{{ $logo.RelPermalink }}" width="{{ $logo.Width }}"
           height="{{ $logo.Height }}">
       </a>
     </div>

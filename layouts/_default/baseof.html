@@ -39,7 +39,7 @@
   <link rel="preload" href="{{ .Site.BaseURL }}/fonts/AlaskaExtrabold.woff" as="font" type="font/woff" crossorigin>
   <link rel="preload" href="{{ .Site.BaseURL }}/fonts/AlaskaExtrabold.woff2" as="font" type="font/woff2" crossorigin>
 
-  {{- $favicon := (resources.Get "logos/shakthi-palace-logo-transparent.png").Resize "48x #fff" -}}
+  {{- $favicon := (resources.Get (default "logos/logo.png" .Site.Params.logo)).Resize "32x #fff" -}}
   <link rel="icon" href="{{ $favicon.RelPermalink }}">
 
   {{ $style := resources.Get "scss/style.scss" }}
