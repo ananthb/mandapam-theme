@@ -1,0 +1,16 @@
+<div class="work event-summary">
+  {{ if .Params.thumbnail }}
+  <div class="event-image">
+    <a href="{{ .RelPermalink }}">
+      {{- $thumb := (resources.Get .Params.thumbnail).Fill "480x420" -}}
+      <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" alt="{{ .Title }}">
+    </a>
+  </div>
+  {{ end }}
+  <div class="event-content">
+    <h2 class="event-title">
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </h2>
+    {{ .Content | truncate 120 "..." | plainify }}
+  </div>
+</div>

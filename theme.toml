@@ -1,0 +1,10 @@
+name = "Mandapam"
+license = "MIT"
+licenselink = "https://github.com/ananthb/mandapam-theme/blob/main/LICENSE"
+description = "A Hugo theme for event venues and wedding halls"
+homepage = "https://github.com/ananthb/mandapam-theme"
+min_version = "0.128.0"
+
+[author]
+  name = "Ananth Bhaskararaman"
+  homepage = "https://github.com/ananthb"

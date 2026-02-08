@@ -1,0 +1,27 @@
+.page-contact {
+  .static-map {
+    width: 90%;
+  }
+
+  .contact-icon {
+    width: 24px;
+  }
+
+  .btn-contact {
+    @include border-radius(5rem);
+  }
+}
+
+.google-maps-iframe {
+  overflow: hidden;
+  padding-bottom: 100%;
+  position: relative;
+  height: 0;
+  iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+}

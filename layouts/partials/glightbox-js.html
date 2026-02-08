@@ -1,0 +1,8 @@
+{{ $glboxJs := resources.Get "js/glightbox.js" }}
+{{ if hugo.IsProduction }}
+{{ $glboxJs = $glboxJs | minify | fingerprint }}
+{{ end }}
+<script type="module">
+  import "{{ $glboxJs.RelPermalink }}";
+  const lightbox = GLightbox();
+</script>

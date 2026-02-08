@@ -1,0 +1,33 @@
+{{- $lbg := (resources.Get .leftBackground).Resize "800x" -}}
+{{- $rbg := (resources.Get .rightBackground).Resize "800x" -}}
+<div class="hero-image hero-image-split-fullscreen">
+  <div class="hero-container d-flex flex-column justify-content-center h-100">
+    <div class="hero-text pt-5">
+      <span class="hero-section">{{ .section }}</span>
+      <h1>{{ .heading | markdownify }}</h1>
+      <h2>{{ .subheading | markdownify }}</h2>
+    </div>
+    <div class="container-fluid h-100 d-flex flex-column">
+      <div class="row h-100">
+        <div class="col-md bg-position-top"
+        style="background-image: url('{{ $lbg.RelPermalink }}');">
+      </div>
+      <div class="col-md bg-position-top"
+      style="background-image: url('{{ $rbg.RelPermalink }}');">
+    </div>
+  </div>
+  <div class="hero-down">
+    <a aria-label="Scroll past main banner image" href="#home">
+      <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 898.75 533.751"
+      transform="matrix(.69 0 0 .69 15.5 15.5)"
+      fill="#fff">
+      <path
+      d="M224.687 309.061L0 84.372l42.186-42.186L84.372 0l182.815 182.811L450 365.622l182.5-182.496L815 .63l41.874 41.874L898.75 84.38 674.062 309.065 449.373 533.751 224.687 309.06z"/>
+    </svg>
+  </a>
+</div>
+{{/* close stuff opened outside */}}
+</div>
+</div>
+</div>
+{{ .Site.BaseURL }}

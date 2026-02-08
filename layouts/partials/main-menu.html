@@ -1,0 +1,14 @@
+<nav class="main-menu">
+  <ul>
+    {{ $currentPage := . }}
+    {{ range .Site.Menus.main }}
+    {{ $active := or (eq $.RelPermalink .URL) (or ($currentPage.HasMenuCurrent "main" .) ($currentPage.IsMenuCurrent "main" .)) }}
+    <li class='{{ if $active  }}active{{ end }}'>
+    <a href="{{.URL}}">
+      {{ .Pre }}
+      <span>{{ .Name }}</span>
+    </a>
+    </li>
+    {{end}}
+  </ul>
+</nav>

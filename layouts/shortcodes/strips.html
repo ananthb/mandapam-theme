@@ -1,0 +1,25 @@
+{{ $resources := $.Page.Resources.ByType "page" }}
+{{ range $resources }}
+
+{{ if .Params.background }}
+{{- $bg := (resources.Get .Params.background).Resize "1200x" -}}
+<div class="strip bg-cover bg-position-bottom pt-15 pb-15"
+style="background-image: url('{{ $bg.RelPermalink }}');">
+{{ else }}
+<div class="strip bg-primary bg-overlay pt-15 pb-15">
+  {{ end }}
+  {{ if gt (len .Content) 0 }}
+  <div class="container pt-8 pb-8 pb-md-12 pt-md-12">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 text-center p-2">
+        <h1>{{ .Title }}</h1>
+        {{ .Content }}
+        {{ if .Params.button }}
+        <a class="btn btn-primary btn-lg" href="{{ .Params.buttonLink | relURL }}">{{ .Params.button }}</a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+  {{ end }}
+</div>
+{{ end }}

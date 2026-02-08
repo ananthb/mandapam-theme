@@ -1,0 +1,16 @@
+<div class="header header-absolute">
+  <div class="container">
+    <div class="logo">
+      <a href="{{ .Site.BaseURL }}">
+        {{- $logo := (resources.Get "logos/shakthi-palace-logo-transparent.png").Resize "100x" -}}
+        <img alt="Shakthi Palace Logo" src="{{ $logo.RelPermalink }}" width="{{ $logo.Width }}"
+          height="{{ $logo.Height }}">
+      </a>
+    </div>
+    {{ with .Site.GetPage "/contact" }}
+    <a href="{{ .RelPermalink }}" class="btn btn-primary d-block d-sm-none">{{ .Title }}</a>
+    {{ end }}
+    {{ partial "main-menu.html" . }}
+    {{ partialCached "hamburger.html" . }}
+  </div>
+</div>

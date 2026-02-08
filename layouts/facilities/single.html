@@ -1,0 +1,49 @@
+{{ define "header_css" }}
+{{ partialCached "glightbox-css.html" . }}
+{{ end }}
+
+{{ define "header_js" }}
+{{ partialCached "glightbox-js.html" . }}
+{{ end }}
+
+{{ define "main" }}
+{{ partial "hero-image-setheight.html" (dict "heading" .Params.heading "section" .Section "content" .)}}
+<div class="container pt-4 pt-md-10 pb-4 pb-md-10">
+  <div class="row justify-content-start">
+    <div class="col-12 col-md-8">
+      <div class="service service-single">
+        <div class="content">{{ .Content }}</div>
+      </div>
+    </div>
+    {{ with .Params.images }}
+    <div class="col-12 pt-4 pt-md-10">
+      <h2 class="mb-2 text-uppercase">Gallery</h2>
+      <div class="masonry">
+        {{ range $ix, $el := . }}
+        <div class="item">
+          {{- $img := resources.Get $el -}}
+          {{- $thumbnail := $img.Resize "360x q50" -}}
+          {{- $display := $img.Resize "1200x" -}}
+          <a href="{{ $display.RelPermalink }}" class="glightbox" data-gallery="{{ $.Title }}">
+            <img src="{{ $thumbnail.RelPermalink }}" width="{{ $thumbnail.Width }}" height="{{ $thumbnail.Height }}"
+              alt="{{ $.Title }} Photo {{ $ix }}">
+          </a>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
+
+{{ define "footer_js" }}
+{{ $library := resources.Get "js/libs/library.js" }}
+{{ $services := resources.Get "js/pages/services.js" }}
+{{ $servicesJS := slice $library $services |resources.Concat "js/services.js" }}
+{{ if hugo.IsProduction }}
+  <script type="text/javascript" src="{{ ($servicesJS | minify | fingerprint).RelPermalink }}"></script>
+  {{ else }}
+  <script type="text/javascript" src="{{ $servicesJS.RelPermalink }}"></script>
+  {{ end }}
+{{ end }}

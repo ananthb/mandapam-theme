@@ -1,0 +1,7 @@
+{{ $glboxCss := resources.Get "css/glightbox.css" }}
+{{ if hugo.IsProduction }}
+{{ $glboxCss := $glboxCss | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $glboxCss.RelPermalink }}" integrity="{{ $glboxCss.Data.Integrity }}">
+{{ else }}
+<link rel="stylesheet" href="{{ $glboxCss.RelPermalink }}">
+{{ end }}

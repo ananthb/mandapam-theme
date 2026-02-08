@@ -1,0 +1,58 @@
+<footer class="footer pt-2 pb-2 pt-md-1 pb-md-1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1">
+        <div class="logo">
+          <a href="{{ .Site.BaseURL }}">
+            {{- $logo := (resources.Get "logos/shakthi-palace-logo-transparent.png").Resize "64x #fff" -}}
+            <img alt="Shakthi Palace Logo" src="{{ $logo.RelPermalink }}" width="{{ $logo.Width }}"
+              height="{{ $logo.Height }}">
+          </a>
+        </div>
+      </div>
+      <div class="col-md-11">
+        {{ partial "main-menu.html" . }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-10 pt-1">
+        <div class="btn-group contact-links">
+          {{ $call := (resources.Get "logos/call.png").Resize "24x" }}
+          {{ range .Site.Data.contact.phone }}
+          <a class="btn btn-outline-primary" href="tel:{{ . }}">
+            <strong>
+              <img class="contact-icon" src="{{ $call.RelPermalink }}" alt="Telephone">
+            </strong>
+            {{ . }}
+          </a>
+          {{ end }}
+          {{ $whatsapp := (resources.Get "logos/WhatsApp.png").Resize "24x" }}
+          {{ range .Site.Data.contact.whatsapp }}
+          <a class="btn btn-outline-primary" href="https://wa.me/{{ . }}">
+            <strong><img class="contact-icon" src="{{ $whatsapp.RelPermalink }}" alt="WhatsApp"></strong>
+            {{ . }}
+          </a>
+          {{ end }}
+          {{ $emailPng := (resources.Get "logos/email.png").Resize "24x" }}
+
+          {{ range .Site.Data.contact.email }}
+          <a class="btn btn-outline-primary" href="mailto:{{ . }}">
+            <strong><img class="contact-icon" src="{{ $emailPng.RelPermalink }}" alt="Email"></strong>
+            {{ . }}
+          </a>
+          {{ end }}
+        </div>
+      </div>
+      <div class="col-md-2">
+        <p class="text-white">&copy; {{ now.Format "2006" }} Shakthi Palace</p>
+        {{ if ne .GitInfo nil }}
+        <p class="text-muted">
+          <small class="font-weight-light">
+            Commit <a target="_blank" href="https://github.com/{{ .Site.Params.github_repository }}/commit/{{ .GitInfo.Hash }}">{{ .GitInfo.AbbreviatedHash }}</a>
+          </small>
+        </p>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</footer>

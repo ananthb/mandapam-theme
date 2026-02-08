@@ -1,0 +1,13 @@
+{{- $bg := "" -}}
+{{- with .background -}}
+{{- $bg = ((resources.Get .).Resize "1200x").RelPermalink -}}
+{{- end -}}
+<div id="hero" class="hero-image hero-image-setheight" style="background-image: url('{{ $bg }}')">
+  <div class="container d-flex flex-column flex-justify-content-center pt-5">
+    <div class="hero-text">
+      <span class="hero-section">{{ .section }}</span>
+      <h1>Shakthi Palace</h1>
+      <h2>{{ .heading }}</h2>
+    </div>
+  </div>
+</div>

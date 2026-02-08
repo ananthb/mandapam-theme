@@ -1,0 +1,10 @@
+.strip {
+  min-height: 600px;
+
+  background-repeat: no-repeat;
+
+  .container .row div {
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 0.4rem;
+  }
+}

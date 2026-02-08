@@ -1,0 +1,80 @@
+{{ define "body_classes" }}page-contact{{ end }}
+
+{{ define "main" }}
+<div class="intro intro-small">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>{{ .Title }}</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row p-1">
+        <div class="col-md">
+            {{ .Content }}
+            <ul class="list-group contact-links">
+                {{ with .Site.Data.contact.phone }}
+                <li class="list-group-item">
+                    {{ $callPng := (resources.Get "logos/call.png").Resize "24x" }}
+                    <h3><strong>Phone <img class="contact-icon" src="{{ $callPng.RelPermalink }}" alt="Telephone"></strong></h3>
+                    <div class="btn-group" role="group" aria-label="Telephone">
+                        {{ range . }}
+                            <a class="btn btn-outline-primary btn-contact" href="tel:{{ . }}">{{ . }}</a>
+                        {{ end }}
+                    </div>
+                </li>
+                {{ end }}
+                {{ with .Site.Data.contact.whatsapp }}
+                <li class="list-group-item">
+                    {{ $waPng := (resources.Get "logos/WhatsApp.png").Resize "24x" }}
+                    <h3><strong>WhatsApp <img class="contact-icon" src="{{ $waPng.RelPermalink }}" alt="WhatsApp"></strong></h3>
+                    <div class="btn-group" role="group" aria-label="WhatsApp">
+                        {{ range . }}
+                            <a class="btn btn-outline-primary btn-contact" href="https://wa.me/{{ . }}">{{ . }}</a>
+                        {{ end }}
+                    </div>
+                </li>
+                {{ end }}
+                {{ with .Site.Data.contact.email }}
+                <li class="list-group-item">
+                    {{ $emailPng := (resources.Get "logos/email.png").Resize "24x" }}
+                    <h3><strong>Email <img class="contact-icon" src="{{ $emailPng.RelPermalink }}" alt="Email"></strong></h3>
+                    <div class="btn-group" role="group" aria-label="Email">
+                        {{ range . }}
+                            <a class="btn btn-outline-primary btn-contact" href="mailto:{{ . }}?subject=Enquiry">{{ . }}</a>
+                        {{ end }}
+                    </div>
+                </li>
+                {{ end }}
+                {{ with .Site.Data.contact.socials }}
+                <li class="list-group-item">
+                    <h3><strong>Socials</strong></h3>
+                    <div class="btn-group" role="group" aria-label="Social Media">
+                        {{ range $name, $url := . }}
+                        <a class="btn btn-outline-primary btn-contact" target="_blank" href="{{ $url }}">{{ $name }}</a>
+                        {{ end }}
+                    </div>
+                </li>
+                {{ end }}
+            </ul>
+        </div>
+
+        <div class="col-md">
+            {{ with .Site.Data.contact.address }}
+            <div>
+                <h3><strong>Address</strong></h3>
+                <p>{{ . }}</p>
+            </div>
+            {{ end }}
+
+            {{ with .Site.Data.contact.map }}
+            <div class="google-maps-iframe">
+                {{ .iframe | safeHTML }}
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</div>
+{{ end }}

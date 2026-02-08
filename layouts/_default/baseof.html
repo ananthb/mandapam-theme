@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>{{ block "title" . }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{ block "meta_tags" . }}{{ end }}
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE0CKY48V3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LE0CKY48V3');
+
+    // Track contact link clicks
+    document.addEventListener('DOMContentLoaded', () => {
+      const links = document.querySelectorAll('.contact-links a');
+      links.forEach(link => {
+        link.addEventListener('click', (e) => {
+          gtag('event', 'conversion');
+        });
+      });
+    });
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-M7895HRP');</script>
+  <!-- End Google Tag Manager -->
+
+  <link rel="preload" href="{{ .Site.BaseURL }}/fonts/AlaskaExtrabold.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="{{ .Site.BaseURL }}/fonts/AlaskaExtrabold.woff2" as="font" type="font/woff2" crossorigin>
+
+  {{- $favicon := (resources.Get "logos/shakthi-palace-logo-transparent.png").Resize "48x #fff" -}}
+  <link rel="icon" href="{{ $favicon.RelPermalink }}">
+
+  {{ $style := resources.Get "scss/style.scss" }}
+  {{ $script := resources.Get "js/script.js" }}
+
+  {{ if hugo.IsProduction }}
+  {{ $prodStyle := $style | toCSS (dict "targetPath" "css/style.css" "enableSourceMap" false) | postCSS | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $prodStyle.RelPermalink }}" integrity="{{ $prodStyle.Data.Integrity }}">
+  {{ $prodScript := $script | minify | fingerprint }}
+  <script type="module" src="{{ $prodScript.RelPermalink }}" integrity="{{ $prodScript.Data.Integrity }}"></script>
+
+  {{ else }}
+  {{ $devStyle := $style | toCSS (dict "targetPath" "css/style.css" "enableSourceMap" true) }}
+  <link rel="stylesheet" href="{{ $devStyle.RelPermalink }}">
+  <script type="module" src="{{ $script.RelPermalink }}"></script>
+  {{ end }}
+
+  {{ block "header_css" . }} {{ end }}
+  {{ block "header_js" . }} {{ end }}
+</head>
+
+<body class='page {{ block "body_classes" . }}{{ end }}'>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M7895HRP"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+{{ partial "main-menu-mobile.html" . }}
+<div id="wrapper" class="wrapper">
+  {{ partial "header.html" . }}
+  {{ block "main" . }}
+  {{ end }}
+</div>
+
+{{ partial "footer.html" . }}
+
+</body>
+</html>
