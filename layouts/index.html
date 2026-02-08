@@ -16,6 +16,8 @@
 
 {{ partial "hero-image-split-fullscreen.html" (dict "leftBackground" .Params.heroLeftBackground "heading" .Params.heroHeading "rightBackground" .Params.heroRightBackground "subheading" .Params.heroSubheading "content" .)}}
 
+{{ partial "contact-section.html" . }}
+
 {{ $headless := .Site.GetPage "/homepage" }}
 {{ $reusablePages := $headless.Resources.ByType "page" }}
 {{ range first 1 $reusablePages }}
@@ -61,7 +63,5 @@ style="background-image: url('{{ $bg.RelPermalink }}');">
   </div>
 </div>
 {{ end }}
-
-{{ partial "contact-section.html" . }}
 
 {{ end }}

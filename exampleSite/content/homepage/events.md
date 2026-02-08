@@ -2,7 +2,7 @@
 title: "Excepteur Sint Occaecat"
 background: "images/event-background.jpg"
 button: "Contact Us"
-buttonLink: "/contact/"
+buttonLink: "/#contact"
 weight: 2
 ---
 
