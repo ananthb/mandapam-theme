@@ -1,9 +1,9 @@
 ---
-title: "Host Your Next Event"
+title: "Excepteur Sint Occaecat"
 background: "images/event-background.jpg"
 button: "Contact Us"
 buttonLink: "/contact/"
 weight: 2
 ---
 
-From intimate gatherings to grand celebrations, our experienced team ensures every event is memorable. Let us help you create the perfect occasion.
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.

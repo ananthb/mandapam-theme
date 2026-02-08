@@ -1,8 +1,8 @@
 ---
-title: "Receptions"
+title: "Receptio"
 icon: "celebration"
 link: "/facilities/"
 weight: 2
 ---
 
-Spacious halls with elegant decor, stage, and seating arrangements for memorable reception events.
+Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation.

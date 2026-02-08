@@ -1,7 +1,7 @@
 ---
-title: "Sri Lakshmi Mandapam"
+title: "Lorem Mandapam"
 heroLeftBackground: "images/wedding-left.jpg"
 heroRightBackground: "images/wedding-right.jpg"
-heroHeading: "Sri Lakshmi Mandapam"
-heroSubheading: "Where traditions meet elegance"
+heroHeading: "Lorem Mandapam"
+heroSubheading: "Consectetur adipiscing elit"
 ---

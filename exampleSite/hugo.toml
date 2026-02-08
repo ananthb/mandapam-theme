@@ -1,6 +1,6 @@
 baseURL = "https://example.com/"
 languageCode = "en-us"
-title = "Sri Lakshmi Mandapam"
+title = "Lorem Mandapam"
 theme = ["github.com/ananthb/mandapam-theme"]
 
 enableGitInfo = true
@@ -14,35 +14,35 @@ enableGitInfo = true
   google_analytics_id = ""
   github_repository = "ananthb/mandapam-theme"
   [params.homepage_meta_tags]
-    meta_description = "Sri Lakshmi Mandapam - A beautiful venue for weddings and celebrations"
-    meta_og_title = "Sri Lakshmi Mandapam"
+    meta_description = "Lorem ipsum dolor sit amet consectetur adipiscing elit"
+    meta_og_title = "Lorem Mandapam"
     meta_og_type = "website"
     meta_og_url = "https://example.com"
     meta_og_image = "https://example.com/images/venue.jpg"
-    meta_og_description = "Sri Lakshmi Mandapam - A beautiful venue for weddings and celebrations"
+    meta_og_description = "Lorem ipsum dolor sit amet consectetur adipiscing elit"
     meta_twitter_card = "summary_large_image"
-    meta_twitter_site = "@example"
-    meta_twitter_creator = "@example"
+    meta_twitter_site = "@lorem"
+    meta_twitter_creator = "@lorem"
 
 [menus]
   [[menus.main]]
-    name = "Home"
+    name = "Domus"
     url = "/"
     weight = 10
   [[menus.main]]
-    name = "Venue"
+    name = "Locus"
     url = "/venue/"
     weight = 20
   [[menus.main]]
-    name = "Facilities"
+    name = "Facilitates"
     url = "/facilities/"
     weight = 30
   [[menus.main]]
-    name = "Gallery"
+    name = "Imago"
     url = "/gallery/"
     weight = 40
   [[menus.main]]
-    name = "Contact"
+    name = "Contactus"
     url = "/contact/"
     weight = 50
 

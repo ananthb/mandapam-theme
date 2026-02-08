@@ -1,9 +1,9 @@
 ---
-title: "Welcome to Sri Lakshmi Mandapam"
+title: "Lorem Ipsum Dolor Sit Amet"
 background: "images/hall-background.jpg"
-button: "View Our Venue"
+button: "Explore Venue"
 buttonLink: "/venue/"
 weight: 1
 ---
 
-Celebrate your special moments in our beautifully designed venue. With spacious halls, modern amenities, and traditional charm, Sri Lakshmi Mandapam is the perfect choice for weddings, receptions, and family gatherings.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.

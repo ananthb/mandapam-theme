@@ -1,8 +1,8 @@
 ---
-title: "Weddings"
+title: "Matrimonium"
 icon: "favorite"
 link: "/venue/"
 weight: 1
 ---
 
-Traditional and modern wedding ceremonies with complete arrangements for muhurtham, reception, and related functions.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi morbi tempus iaculis urna id volutpat lacus.
