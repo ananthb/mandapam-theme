@@ -2,6 +2,7 @@ phone = ["+91 562 222 6431", "+91 562 222 7261"]
 whatsapp = ["915622226431"]
 email = ["info@tajmandapam.com", "bookings@tajmandapam.com"]
 address = "Taj Mahal, Dharmapuri, Forest Colony, Tajganj, Agra, Uttar Pradesh 282001, India"
+form = "https://form-worker.srv-cf.workers.dev/f/mandapam-theme-demo"
 
 [socials]
   Facebook = "https://facebook.com/tajmandapam"

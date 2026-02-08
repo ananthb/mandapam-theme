@@ -62,6 +62,17 @@
         </div>
 
         <div class="col-md">
+            {{ with .Site.Data.contact.form }}
+            <div class="contact-form-container">
+                <h3><strong>Send us a Message</strong></h3>
+                <div class="contact-form-iframe">
+                    {{- $formCSS := ":root{--cf-primary-color:#AF8622;--cf-primary-hover:#D4A84B;--cf-border-color:rgba(175,134,34,0.3);--cf-border-radius:8px;--cf-form-bg:#fffdf8;}" -}}
+                    {{- $separator := cond (strings.Contains . "?") "&" "?" -}}
+                    <iframe src="{{ . }}{{ $separator }}css={{ $formCSS | urlquery }}" title="Contact Form" loading="lazy"></iframe>
+                </div>
+            </div>
+            {{ end }}
+
             {{ with .Site.Data.contact.address }}
             <div>
                 <h3><strong>Address</strong></h3>

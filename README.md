@@ -86,6 +86,7 @@ phone = ["+91 12345 67890"]
 whatsapp = ["911234567890"]
 email = ["info@example.com"]
 address = "123 Street, City, State, Country"
+form = "https://your-form-worker.workers.dev/f/your-form"  # Optional contact form URL
 
 [socials]
   Facebook = "https://facebook.com/example"
@@ -94,6 +95,21 @@ address = "123 Street, City, State, Country"
 [map]
   iframe = '<iframe src="https://www.google.com/maps/embed?..." width="100%" height="300"></iframe>'
 ```
+
+### Contact Form
+
+The theme supports embedding contact forms via [form-worker](https://github.com/ananthb/form-worker). To enable the contact form:
+
+1. Set up a form-worker instance
+2. Create a form in the admin dashboard
+3. Add your domain to the form's "Allowed Origins"
+4. Add the form URL to `data/contact.toml`:
+
+```toml
+form = "https://your-form-worker.workers.dev/f/your-form-slug"
+```
+
+If no `form` URL is provided, the contact form section will not be rendered.
 
 ### Menu
 

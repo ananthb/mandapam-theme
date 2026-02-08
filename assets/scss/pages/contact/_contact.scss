@@ -40,6 +40,37 @@
   }
 }
 
+// Contact form styling
+.contact-form-container {
+  margin-bottom: 2rem;
+
+  h3 {
+    background: linear-gradient(180deg, #FFD700 0%, $primary 50%, #8B6914 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+}
+
+.contact-form-iframe {
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  border: 3px solid transparent;
+  background: linear-gradient(#fff, #fff) padding-box,
+              linear-gradient(135deg, #8B6914, $primary, #FFD700) border-box;
+  overflow: hidden;
+
+  iframe {
+    width: 100%;
+    min-height: 500px;
+    border: none;
+    display: block;
+    border-radius: 9px;
+  }
+}
+
 .google-maps-iframe {
   overflow: hidden;
   padding-bottom: 56.25%;
