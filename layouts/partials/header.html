@@ -2,7 +2,7 @@
   <div class="container">
     <div class="logo">
       <a href="{{ .Site.BaseURL }}">
-        {{- $logo := (resources.Get (default "logos/logo.png" .Site.Params.logo)).Resize "200x" -}}
+        {{- $logo := (resources.Get (default "logos/logo.png" .Site.Params.logo)).Resize "400x q100" -}}
         <img alt="{{ .Site.Title }} Logo" src="{{ $logo.RelPermalink }}" width="{{ $logo.Width }}"
           height="{{ $logo.Height }}">
       </a>
