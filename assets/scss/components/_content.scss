@@ -54,12 +54,7 @@
     font-family: $font-family-heading;
     line-height: 1.4;
     font-weight: 400;
-    background: linear-gradient(180deg, #FFD700 0%, $primary 50%, #8B6914 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    filter: drop-shadow(1px 1px 0px rgba(0, 0, 0, 0.5))
-            drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.2));
+    color: #333333;
     @include media-breakpoint-up(md) {
       line-height: 1.4;
     }
