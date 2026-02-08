@@ -67,10 +67,12 @@
                 {{ with $contact.form }}
                 <div class="contact-form-container">
                     <h3><strong>Send us a Message</strong></h3>
-                    <div class="contact-form-iframe">
-                        {{- $formCSS := ":root{--cf-font-family:'Open Sans',Helvetica,Arial,sans-serif;--cf-primary-color:#AF8622;--cf-primary-hover:#D4A84B;--cf-border-color:rgba(175,134,34,0.3);--cf-border-radius:8px;--cf-form-bg:#fffdf8;}" -}}
-                        {{- $separator := cond (strings.Contains . "?") "&" "?" -}}
-                        <iframe src="{{ . }}{{ $separator }}css={{ $formCSS | urlquery }}" title="Contact Form" loading="lazy" scrolling="no"></iframe>
+                    <div class="contact-form"
+                         hx-get="{{ . }}"
+                         hx-trigger="load"
+                         hx-select=".contact-form"
+                         hx-swap="innerHTML">
+                        <div class="form-loading">Loading form...</div>
                     </div>
                 </div>
                 {{ end }}
