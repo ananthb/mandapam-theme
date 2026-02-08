@@ -40,13 +40,12 @@
     h1 {
       font-family: $font-family-heading;
       font-size: 4rem;
-      background: linear-gradient(180deg, #FFD700 0%, $primary 50%, #8B6914 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.8))
-              drop-shadow(3px 3px 0px rgba(0, 0, 0, 0.6))
-              drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.4));
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.8),
+                   0 0 20px rgba(255, 215, 0, 0.6),
+                   0 0 40px rgba(255, 215, 0, 0.4),
+                   0 0 60px rgba(175, 134, 34, 0.3),
+                   2px 2px 4px rgba(0, 0, 0, 0.5);
       @include media-breakpoint-up(md) {
         font-size: 5rem;
         width: 80%;
