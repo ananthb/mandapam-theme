@@ -65,12 +65,9 @@
             {{/* Right column: Form */}}
             <div class="col-md-5">
                 {{ with $contact.form }}
-                {{- $formURL := urls.Parse . -}}
-                {{- $formBase := printf "%s://%s" $formURL.Scheme $formURL.Host -}}
                 <div class="contact-form-container">
                     <h3><strong>Send us a Message</strong></h3>
                     <div class="contact-form"
-                         data-form-base="{{ $formBase }}"
                          hx-get="{{ . }}"
                          hx-trigger="load"
                          hx-select="#form-container"
@@ -78,21 +75,6 @@
                         <div class="form-loading">Loading form...</div>
                     </div>
                 </div>
-                <script>
-                    document.addEventListener('htmx:afterSwap', function(event) {
-                        if (event.detail.target.classList.contains('contact-form')) {
-                            const formBase = event.detail.target.dataset.formBase;
-                            const form = event.detail.target.querySelector('form[hx-post]');
-                            if (form && formBase) {
-                                const postUrl = form.getAttribute('hx-post');
-                                if (postUrl && postUrl.startsWith('/')) {
-                                    form.setAttribute('hx-post', formBase + postUrl);
-                                    htmx.process(form);
-                                }
-                            }
-                        }
-                    });
-                </script>
                 {{ end }}
             </div>
         </div>
