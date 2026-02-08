@@ -19,8 +19,10 @@ A Hugo theme for event venues and wedding halls (mandapams).
 
 ## Screenshots
 
-### Homepage
 ![Homepage](images/screenshot.png)
+
+<details>
+<summary>More screenshots</summary>
 
 ### Venue
 ![Venue](images/screenshot-venue.png)
@@ -36,6 +38,8 @@ A Hugo theme for event venues and wedding halls (mandapams).
 
 ### Mobile
 ![Mobile](images/screenshot-mobile.png)
+
+</details>
 
 ## Installation
 
