@@ -2,6 +2,7 @@
   "name": "mandapam-theme",
   "version": "1.0.0",
   "private": true,
+  "license": "MIT",
   "type": "module",
   "description": "A Hugo theme for event venues and wedding halls",
   "scripts": {
