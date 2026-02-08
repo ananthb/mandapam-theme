@@ -7,11 +7,11 @@ A Hugo theme for event venues and wedding halls (mandapams).
 ## Features
 
 - Responsive design with Bootstrap
-- Homepage with hero split-screen, services, and content strips
+- Homepage with hero split-screen, services, content strips, and contact section
 - Facilities section with image galleries
 - Gallery section with lightbox support (GLightbox)
 - Venue page with hero image
-- Contact page with phone, WhatsApp, email, and map integration
+- Integrated contact section with phone, WhatsApp, email, form, and map
 - Gold gradient heading styles with 3D shadow effects
 - Configurable logo and site parameters
 - PostCSS with autoprefixer for production builds
@@ -33,8 +33,8 @@ A Hugo theme for event venues and wedding halls (mandapams).
 ### Gallery
 ![Gallery](images/screenshot-gallery.png)
 
-### Contact
-![Contact](images/screenshot-contact.png)
+### Contact Section
+![Contact Section](images/screenshot-contact.png)
 
 ### Mobile
 ![Mobile](images/screenshot-mobile.png)
@@ -133,7 +133,7 @@ If no `form` URL is provided, the contact form section will not be rendered.
     weight = 40
   [[menus.main]]
     name = "Contact"
-    url = "/contact/"
+    url = "/#contact"
     weight = 50
 ```
 

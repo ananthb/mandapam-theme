@@ -33,7 +33,7 @@ const SCREENSHOTS = [
   { name: 'screenshot-venue.png', path: '/venue/', viewport: DESKTOP },
   { name: 'screenshot-facilities.png', path: '/facilities/', viewport: DESKTOP },
   { name: 'screenshot-gallery.png', path: '/gallery/', viewport: DESKTOP },
-  { name: 'screenshot-contact.png', path: '/contact/', viewport: DESKTOP },
+  { name: 'screenshot-contact.png', path: '/#contact', viewport: DESKTOP, scrollTo: '#contact' },
 
   // Mobile screenshots
   { name: 'screenshot-mobile.png', path: '/', viewport: MOBILE },
@@ -104,6 +104,11 @@ async function captureScreenshots() {
 
       const page = await context.newPage();
       await page.goto(`${BASE_URL}${shot.path}`, { waitUntil: 'load', timeout: 60000 });
+
+      // Scroll to element if specified
+      if (shot.scrollTo) {
+        await page.locator(shot.scrollTo).scrollIntoViewIfNeeded();
+      }
 
       // Wait for any animations/transitions
       await setTimeout(500);

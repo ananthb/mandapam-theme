@@ -45,7 +45,7 @@ enableGitInfo = true
     weight = 40
   [[menus.main]]
     name = "Contactus"
-    url = "/contact/"
+    url = "/#contact"
     weight = 50
 
 [module]

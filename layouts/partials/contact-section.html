@@ -1,0 +1,90 @@
+{{- $contact := .Site.Data.contact -}}
+{{- if $contact -}}
+<section id="contact" class="contact-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 text-center mb-4">
+                <h2>Get in Touch</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            {{/* Left column: Contact links */}}
+            <div class="col-md-6 mb-4">
+                <ul class="list-group contact-links">
+                    {{ with $contact.phone }}
+                    <li class="list-group-item">
+                        {{ $callPng := (resources.Get "logos/call.png").Resize "24x" }}
+                        <h3><strong>Phone <img class="contact-icon" src="{{ $callPng.RelPermalink }}" alt="Telephone"></strong></h3>
+                        <div class="btn-group" role="group" aria-label="Telephone">
+                            {{ range . }}
+                                <a class="btn btn-outline-primary btn-contact" href="tel:{{ . }}">{{ . }}</a>
+                            {{ end }}
+                        </div>
+                    </li>
+                    {{ end }}
+                    {{ with $contact.whatsapp }}
+                    <li class="list-group-item">
+                        {{ $waPng := (resources.Get "logos/WhatsApp.png").Resize "24x" }}
+                        <h3><strong>WhatsApp <img class="contact-icon" src="{{ $waPng.RelPermalink }}" alt="WhatsApp"></strong></h3>
+                        <div class="btn-group" role="group" aria-label="WhatsApp">
+                            {{ range . }}
+                                <a class="btn btn-outline-primary btn-contact" href="https://wa.me/{{ . }}">{{ . }}</a>
+                            {{ end }}
+                        </div>
+                    </li>
+                    {{ end }}
+                    {{ with $contact.email }}
+                    <li class="list-group-item">
+                        {{ $emailPng := (resources.Get "logos/email.png").Resize "24x" }}
+                        <h3><strong>Email <img class="contact-icon" src="{{ $emailPng.RelPermalink }}" alt="Email"></strong></h3>
+                        <div class="btn-group" role="group" aria-label="Email">
+                            {{ range . }}
+                                <a class="btn btn-outline-primary btn-contact" href="mailto:{{ . }}?subject=Enquiry">{{ . }}</a>
+                            {{ end }}
+                        </div>
+                    </li>
+                    {{ end }}
+                    {{ with $contact.socials }}
+                    <li class="list-group-item">
+                        <h3><strong>Socials</strong></h3>
+                        <div class="btn-group" role="group" aria-label="Social Media">
+                            {{ range $name, $url := . }}
+                            <a class="btn btn-outline-primary btn-contact" target="_blank" href="{{ $url }}">{{ $name }}</a>
+                            {{ end }}
+                        </div>
+                    </li>
+                    {{ end }}
+                </ul>
+
+                {{ with $contact.address }}
+                <div class="address-block mt-4">
+                    <h3><strong>Address</strong></h3>
+                    <p>{{ . }}</p>
+                </div>
+                {{ end }}
+            </div>
+
+            {{/* Right column: Form and Map */}}
+            <div class="col-md-6">
+                {{ with $contact.form }}
+                <div class="contact-form-container mb-4">
+                    <h3><strong>Send us a Message</strong></h3>
+                    <div class="contact-form-iframe">
+                        {{- $formCSS := ":root{--cf-primary-color:#AF8622;--cf-primary-hover:#D4A84B;--cf-border-color:rgba(175,134,34,0.3);--cf-border-radius:8px;--cf-form-bg:#fffdf8;}" -}}
+                        {{- $separator := cond (strings.Contains . "?") "&" "?" -}}
+                        <iframe src="{{ . }}{{ $separator }}css={{ $formCSS | urlquery }}" title="Contact Form" loading="lazy" scrolling="no"></iframe>
+                    </div>
+                </div>
+                {{ end }}
+
+                {{ with $contact.map }}
+                <div class="google-maps-iframe">
+                    {{ .iframe | safeHTML }}
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</section>
+{{- end -}}
