@@ -69,92 +69,97 @@
     color: #888;
   }
 
-  .form-group {
-    margin-bottom: 1rem;
-  }
-
-  label {
-    display: block;
-    margin-bottom: 0.4rem;
-    font-weight: 500;
-    color: #333;
-    font-size: 0.9rem;
-  }
-
-  input[type="text"],
-  input[type="email"],
-  input[type="tel"],
-  textarea {
-    width: 100%;
-    padding: 0.6rem 0.8rem;
-    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-    font-size: 0.95rem;
-    border: 2px solid rgba(175, 134, 34, 0.3);
-    border-radius: 8px;
-    background: #fffdf8;
-    color: #333;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-
-    &:focus {
-      outline: none;
-      border-color: $primary;
-      box-shadow: 0 0 0 3px rgba(175, 134, 34, 0.15);
+  // Style the form element from form-worker
+  form,
+  &.contact-form {
+    .form-group {
+      margin-bottom: 1rem;
     }
 
-    &::placeholder {
-      color: #999;
+    label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+      color: #333;
+      font-size: 0.9rem;
     }
-  }
 
-  textarea {
-    min-height: 100px;
-    resize: vertical;
-  }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input:not([type]),
+    textarea,
+    select {
+      width: 100%;
+      padding: 0.6rem 0.8rem;
+      font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+      font-size: 0.95rem;
+      border: 2px solid rgba(175, 134, 34, 0.3);
+      border-radius: 8px;
+      background: #fffdf8;
+      color: #333;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      box-sizing: border-box;
 
-  button[type="submit"],
-  input[type="submit"] {
-    display: inline-block;
-    padding: 0.7rem 1.5rem;
-    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #fff;
-    background: linear-gradient(135deg, #8B6914 0%, $primary 50%, #D4A84B 100%);
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(175, 134, 34, 0.3);
+      &:focus {
+        outline: none;
+        border-color: $primary;
+        box-shadow: 0 0 0 3px rgba(175, 134, 34, 0.15);
+      }
 
-    &:hover {
-      background: linear-gradient(135deg, $primary 0%, #D4A84B 50%, #FFD700 100%);
-      box-shadow: 0 6px 20px rgba(175, 134, 34, 0.4);
-      transform: translateY(-2px);
+      &::placeholder {
+        color: #999;
+      }
     }
-  }
 
-  // Success/error messages
-  .alert,
-  .form-message {
-    padding: 0.75rem 1rem;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-  }
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
 
-  .alert-success,
-  .form-success {
-    background: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-  }
+    button[type="submit"],
+    button:not([type]),
+    input[type="submit"] {
+      display: inline-block;
+      padding: 0.7rem 1.5rem;
+      font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(135deg, #8B6914 0%, $primary 50%, #D4A84B 100%);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(175, 134, 34, 0.3);
 
-  .alert-error,
-  .alert-danger,
-  .form-error {
-    background: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
+      &:hover {
+        background: linear-gradient(135deg, $primary 0%, #D4A84B 50%, #FFD700 100%);
+        box-shadow: 0 6px 20px rgba(175, 134, 34, 0.4);
+        transform: translateY(-2px);
+      }
+    }
+
+    // Success/error messages from form-worker
+    .success {
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    .error {
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
   }
 }
 
