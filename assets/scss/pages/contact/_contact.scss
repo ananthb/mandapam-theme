@@ -10,18 +10,131 @@
   .btn-contact {
     @include border-radius(5rem);
   }
+
+  // Luxury styled contact links
+  .contact-links {
+    .list-group-item {
+      background: linear-gradient(145deg, #ffffff 0%, #fffdf8 100%);
+      border: 1px solid rgba(175, 134, 34, 0.15);
+      border-radius: 12px !important;
+      margin-bottom: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
+
+      &:hover {
+        box-shadow: 0 8px 24px rgba(175, 134, 34, 0.15);
+        border-color: rgba(175, 134, 34, 0.3);
+        transform: translateX(4px);
+      }
+
+      h3 {
+        background: linear-gradient(180deg, #FFD700 0%, $primary 50%, #8B6914 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
+    }
+  }
 }
 
 .google-maps-iframe {
   overflow: hidden;
-  padding-bottom: 100%;
+  padding-bottom: 56.25%;
   position: relative;
   height: 0;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  border: 3px solid transparent;
+  background: linear-gradient(#fff, #fff) padding-box,
+              linear-gradient(135deg, #8B6914, $primary, #FFD700) border-box;
+
   iframe {
     left: 0;
     top: 0;
     height: 100%;
     width: 100%;
     position: absolute;
+    border-radius: 9px;
+  }
+}
+
+// Luxury button styles
+.btn {
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #8B6914 0%, $primary 50%, #D4A84B 100%);
+  border: none;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(175, 134, 34, 0.3);
+
+  &:hover,
+  &:focus {
+    background: linear-gradient(135deg, $primary 0%, #D4A84B 50%, #FFD700 100%);
+    box-shadow: 0 6px 20px rgba(175, 134, 34, 0.4),
+                0 0 0 3px rgba(255, 215, 0, 0.2);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(175, 134, 34, 0.3);
+  }
+}
+
+.btn-outline-primary {
+  border: 2px solid $primary;
+  color: $primary;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #8B6914 0%, $primary 50%, #D4A84B 100%);
+    transition: left 0.3s ease;
+    z-index: -1;
+  }
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    border-color: $primary;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+
+    &::before {
+      left: 0;
+    }
+  }
+}
+
+.btn-lg {
+  padding: 0.875rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 50px;
+}
+
+// Button group styling
+.btn-group {
+  .btn {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }

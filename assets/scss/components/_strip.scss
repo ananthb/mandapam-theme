@@ -1,10 +1,73 @@
 .strip {
   min-height: 600px;
-
   background-repeat: no-repeat;
 
   .container .row div {
-    background-color: rgba(255, 255, 255, 0.85);
-    border-radius: 0.4rem;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 252, 245, 0.92) 100%);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1),
+                0 2px 8px rgba(175, 134, 34, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(175, 134, 34, 0.1);
+    backdrop-filter: blur(10px);
+  }
+}
+
+// Content boxes with gold accents
+.content-box {
+  background: linear-gradient(145deg, #ffffff 0%, #fffdf8 100%);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08),
+              0 1px 4px rgba(175, 134, 34, 0.1);
+  border: 1px solid rgba(175, 134, 34, 0.12);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #8B6914, $primary, #FFD700, $primary, #8B6914);
+  }
+
+  &:hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12),
+                0 2px 8px rgba(175, 134, 34, 0.2);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+  }
+}
+
+// Luxury card style
+.luxury-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(175, 134, 34, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(175, 134, 34, 0.2);
+  }
+
+  .card-header {
+    background: linear-gradient(135deg, #8B6914 0%, $primary 50%, #D4A84B 100%);
+    color: #fff;
+    padding: 1.25rem 1.5rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-body {
+    padding: 1.5rem;
   }
 }

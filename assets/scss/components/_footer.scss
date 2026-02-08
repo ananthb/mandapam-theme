@@ -1,13 +1,68 @@
 .footer {
-  .btn {
-    @include border-radius(5rem);
+  background: linear-gradient(180deg, darken($secondary, 8%) 0%, darken($secondary, 15%) 100%);
+  border-top: 3px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #8B6914, $primary, #FFD700, $primary, #8B6914);
   }
 
-  background: darken($secondary, 10%);
+  .btn {
+    @include border-radius(5rem);
+    border: 2px solid rgba(255, 215, 0, 0.5);
+    color: #fff;
+    background: transparent;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: linear-gradient(135deg, rgba(139, 105, 20, 0.8) 0%, rgba(175, 134, 34, 0.8) 100%);
+      border-color: #FFD700;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    }
+  }
 
   .logo {
     img {
       max-height: 2.5rem;
+    }
+  }
+
+  // Contact buttons in footer
+  .contact-links {
+    .btn {
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+
+      .contact-icon {
+        filter: brightness(0) invert(1);
+        opacity: 0.9;
+      }
+
+      &:hover .contact-icon {
+        opacity: 1;
+      }
+    }
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  a {
+    color: rgba(255, 215, 0, 0.8);
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #FFD700;
     }
   }
 }

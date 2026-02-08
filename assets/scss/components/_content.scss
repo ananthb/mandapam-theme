@@ -3,15 +3,35 @@
   ol {
     margin-top: 10px;
     margin-bottom: 20px;
+    padding-left: 0;
+    list-style: none;
 
     li {
-      margin-bottom: 5px;
-      margin-left: 20px;
+      margin-bottom: 12px;
+      margin-left: 0;
+      padding-left: 28px;
+      position: relative;
+
+      &::before {
+        content: "◆";
+        position: absolute;
+        left: 0;
+        color: $primary;
+        font-size: 0.7em;
+        top: 0.3em;
+      }
     }
   }
 
   a {
     text-decoration: underline;
+    color: $primary;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: #FFD700;
+      text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+    }
   }
 
   p {
@@ -58,6 +78,111 @@
       line-height: 1.4;
       letter-spacing: 1.8px;
       font-weight: $font-weight-thin;
+    }
+  }
+
+  // Blockquotes - luxury styled
+  blockquote {
+    margin: 2rem 0;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 248, 220, 0.9) 100%);
+    border-left: 4px solid transparent;
+    border-image: linear-gradient(180deg, #FFD700, $primary, #8B6914) 1;
+    box-shadow: 0 4px 20px rgba(175, 134, 34, 0.15),
+                inset 0 1px 0 rgba(255, 215, 0, 0.3);
+    position: relative;
+
+    &::before {
+      content: "\201C";
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      font-size: 4rem;
+      color: $primary;
+      opacity: 0.3;
+      font-family: Georgia, serif;
+    }
+
+    p {
+      font-style: italic;
+      color: #555;
+      margin-bottom: 0.5rem;
+    }
+
+    em {
+      display: block;
+      text-align: right;
+      color: $primary;
+      font-style: normal;
+      font-weight: 600;
+    }
+  }
+
+  // Tables - grand luxury styling
+  table {
+    width: 100%;
+    margin: 2rem 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1),
+                0 1px 3px rgba(175, 134, 34, 0.2);
+
+    thead {
+      background: linear-gradient(135deg, #8B6914 0%, $primary 50%, #FFD700 100%);
+
+      th {
+        padding: 1rem 1.25rem;
+        text-align: left;
+        color: #fff;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+        border: none;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+
+        &:first-child {
+          border-top-left-radius: 8px;
+        }
+
+        &:last-child {
+          border-top-right-radius: 8px;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        transition: all 0.3s ease;
+
+        &:nth-child(even) {
+          background: rgba(255, 248, 220, 0.4);
+        }
+
+        &:hover {
+          background: rgba(255, 215, 0, 0.15);
+          transform: scale(1.01);
+          box-shadow: 0 2px 12px rgba(175, 134, 34, 0.2);
+        }
+
+        td {
+          padding: 1rem 1.25rem;
+          border-bottom: 1px solid rgba(175, 134, 34, 0.15);
+          color: #444;
+
+          &:first-child {
+            font-weight: 500;
+            color: #333;
+          }
+        }
+
+        &:last-child td {
+          border-bottom: none;
+        }
+      }
     }
   }
 }
