@@ -36,11 +36,17 @@
   .hero-text {
     color: #ffffff;
     margin: auto 0;
-    text-shadow: 1px 1px 2px $accent;
 
     h1 {
       font-family: $font-family-heading;
       font-size: 4rem;
+      background: linear-gradient(180deg, #FFD700 0%, $primary 50%, #8B6914 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.8))
+              drop-shadow(3px 3px 0px rgba(0, 0, 0, 0.6))
+              drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.4));
       @include media-breakpoint-up(md) {
         font-size: 5rem;
         width: 80%;
@@ -49,6 +55,10 @@
 
     h2 {
       font-size: 2.4rem;
+      text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.8),
+                   2px 2px 0px rgba(0, 0, 0, 0.6),
+                   3px 3px 4px rgba(0, 0, 0, 0.4),
+                   0 0 20px rgba(255, 215, 0, 0.3);
       @include media-breakpoint-up(md) {
         font-size: 2.8rem;
         width: 60%;
