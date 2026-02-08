@@ -64,10 +64,11 @@
 
   iframe {
     width: 100%;
-    min-height: 500px;
+    min-height: 600px;
     border: none;
     display: block;
     border-radius: 9px;
+    overflow: hidden;
   }
 }
 
