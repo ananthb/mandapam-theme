@@ -4,7 +4,7 @@
       <div class="col-md-1">
         <div class="logo">
           <a href="{{ .Site.BaseURL }}">
-            {{- $logo := (resources.Get (default "logos/logo.png" .Site.Params.logo)).Resize "200x q100" -}}
+            {{- $logo := (resources.Get (default "logos/logo.png" .Site.Params.logo)).Resize "200x q100 #ffffff" -}}
             <img alt="{{ .Site.Title }} Logo" src="{{ $logo.RelPermalink }}" width="{{ $logo.Width }}"
               height="{{ $logo.Height }}">
           </a>
