@@ -3,8 +3,9 @@
     {{ $currentPage := . }}
     {{ range .Site.Menus.main }}
     {{ $active := or (eq $.RelPermalink .URL) (or ($currentPage.HasMenuCurrent "main" .) ($currentPage.IsMenuCurrent "main" .)) }}
-    <li class='{{ if $active  }}active{{ end }}'>
-    <a href="{{.URL}}">
+    {{ $external := .Params.external }}
+    <li class='{{ if $active }}active{{ end }}'>
+    <a href="{{ .URL }}"{{ if $external }} target="_blank" rel="noopener"{{ end }}>
       {{ .Pre }}
       <span>{{ .Name }}</span>
     </a>
