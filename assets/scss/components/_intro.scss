@@ -18,11 +18,16 @@
   }
 
   h1 {
-    color: $primary;
     font-size: 2.4rem;
     line-height: 1.2;
     font-family: $font-family-heading;
     width: 70%;
+    background: linear-gradient(180deg, #FFD700 0%, $primary 50%, #8B6914 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(1px 1px 0px rgba(0, 0, 0, 0.6))
+            drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.3));
     @include media-breakpoint-up(sm) {
       width: 70%;
     }
