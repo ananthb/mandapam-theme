@@ -55,6 +55,10 @@
     line-height: 1.4;
     font-weight: 400;
     color: #333333;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8),
+                 0 0 20px rgba(255, 215, 0, 0.6),
+                 0 0 40px rgba(255, 215, 0, 0.4),
+                 0 0 60px rgba(175, 134, 34, 0.3);
     @include media-breakpoint-up(md) {
       line-height: 1.4;
     }
