@@ -15,16 +15,10 @@
             <div class="col-lg-7 mb-4">
                 <div class="calendar-view-container">
                     <h2>{{ default "Event Calendar" $calendar.view_title }}</h2>
-                    <div class="calendar-view-controls">
-                        <button type="button" class="btn btn-sm btn-outline-primary calendar-view-btn active" data-view="month">Month</button>
-                        <button type="button" class="btn btn-sm btn-outline-primary calendar-view-btn" data-view="week">Week</button>
-                        <button type="button" class="btn btn-sm btn-outline-primary calendar-view-btn" data-view="year">Year</button>
-                    </div>
                     <div class="calendar-view"
                          id="calendar-view"
                          hx-get="{{ $baseUrl }}/view/{{ $viewCalendarId }}/{{ $viewSlug }}?view={{ $defaultView }}"
                          hx-trigger="load"
-                         hx-select=".container"
                          hx-swap="innerHTML">
                         <div class="calendar-loading">
                             <div class="calendar-loading-spinner"></div>
@@ -43,7 +37,6 @@
                          id="calendar-booking"
                          hx-get="{{ $baseUrl }}/book/{{ $bookCalendarId }}/{{ $bookSlug }}"
                          hx-trigger="load"
-                         hx-select=".container"
                          hx-swap="innerHTML">
                         <div class="calendar-loading">
                             <div class="calendar-loading-spinner"></div>
@@ -56,28 +49,4 @@
         </div>
     </div>
 </section>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const baseUrl = "{{ $baseUrl | safeJS }}";
-    const viewCalendarId = "{{ $viewCalendarId | safeJS }}";
-    const viewSlug = "{{ $viewSlug | safeJS }}";
-    const viewButtons = document.querySelectorAll('.calendar-view-btn');
-
-    // Handle view switching
-    viewButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const view = this.dataset.view;
-            const url = `${baseUrl}/view/${viewCalendarId}/${viewSlug}?view=${view}`;
-
-            // Update active state
-            viewButtons.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-
-            // Load new view via HTMX
-            htmx.ajax('GET', url, {target: '#calendar-view', swap: 'innerHTML', select: '.container'});
-        });
-    });
-});
-</script>
 {{- end -}}

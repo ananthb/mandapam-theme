@@ -10,7 +10,6 @@
 <div class="calendar-view-embed"
      hx-get="{{ $baseUrl }}/view/{{ $calendarId }}/{{ $slug }}?view={{ $view }}"
      hx-trigger="load"
-     hx-select=".container"
      hx-swap="innerHTML"
      style="min-height: {{ $height }};">
     <div class="calendar-loading">

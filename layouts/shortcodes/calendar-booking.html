@@ -9,7 +9,6 @@
 <div class="calendar-booking-embed"
      hx-get="{{ $baseUrl }}/book/{{ $calendarId }}/{{ $slug }}"
      hx-trigger="load"
-     hx-select=".container"
      hx-swap="innerHTML"
      style="min-height: {{ $height }};">
     <div class="calendar-loading">
