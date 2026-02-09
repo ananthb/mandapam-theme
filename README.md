@@ -12,6 +12,7 @@ A Hugo theme for event venues and wedding halls (mandapams).
 - Gallery section with lightbox support (GLightbox)
 - Venue page with hero image
 - Integrated contact section with phone, WhatsApp, email, form, and map
+- Calendar integration with [calendar-worker](https://github.com/ananthb/calendar-worker) for event views and booking
 - Gold gradient heading styles with 3D shadow effects
 - Configurable logo and site parameters
 - PostCSS with autoprefixer for production builds
@@ -110,6 +111,31 @@ form = "https://your-form-worker.workers.dev/f/your-form-slug"
 ```
 
 If no `form` URL is provided, the contact form section will not be rendered.
+
+### Calendar Integration
+
+The theme supports embedding event calendars and booking forms via [calendar-worker](https://github.com/ananthb/calendar-worker). Add to `data/contact.toml`:
+
+```toml
+[calendar]
+  base_url = "https://calendar-worker.srv-cf.workers.dev"
+  view_calendar_id = "uuid-for-events"
+  view_slug = "your-view-slug"
+  book_calendar_id = "uuid-for-bookings"
+  book_slug = "your-book-slug"
+  default_view = "month"  # week, month, or year
+  booking_enabled = true
+  show_on_homepage = false
+  view_title = "Event Calendar"
+  booking_title = "Book Your Event"
+```
+
+A dedicated calendar page is available at `/calendar/`. You can also use shortcodes:
+
+```markdown
+{{</* calendar-view */>}}
+{{</* calendar-booking */>}}
+```
 
 ### Menu
 

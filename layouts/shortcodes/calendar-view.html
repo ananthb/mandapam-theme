@@ -5,18 +5,16 @@
 {{- $calendarId := default (default $calendar.calendar_id $calendar.view_calendar_id) (.Get "calendar_id") -}}
 {{- $slug := default (default $calendar.slug $calendar.view_slug) (.Get "slug") -}}
 {{- $view := default (default "month" $calendar.default_view) (.Get "view") -}}
-{{- $height := default "400px" (.Get "height") -}}
+{{- $height := default "500px" (.Get "height") -}}
 
-<div class="calendar-view-embed"
-     id="calendar-view-{{ $calendarId }}-{{ $slug }}"
-     hx-get="{{ $baseUrl }}/view/{{ $calendarId }}/{{ $slug }}?view={{ $view }}"
-     hx-trigger="load"
-     hx-swap="innerHTML"
-     style="min-height: {{ $height }};">
-    <div class="calendar-loading">
-        <div class="calendar-loading-spinner"></div>
-        <span>Loading calendar...</span>
-    </div>
+<div class="calendar-view-embed-wrapper">
+    <iframe
+        class="calendar-iframe"
+        src="{{ $baseUrl }}/view/{{ $calendarId }}/{{ $slug }}?view={{ $view }}"
+        style="height: {{ $height }};"
+        loading="lazy"
+        title="Event Calendar">
+    </iframe>
 </div>
 {{- else -}}
 <p class="calendar-error">Calendar not configured. Please add calendar settings to data/contact.toml.</p>

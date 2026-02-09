@@ -16,19 +16,18 @@
                 <div class="calendar-view-container">
                     <h2>{{ default "Event Calendar" $calendar.view_title }}</h2>
                     <div class="calendar-view-controls">
+                        <button type="button" class="btn btn-sm btn-outline-primary calendar-view-btn active" data-view="month">Month</button>
                         <button type="button" class="btn btn-sm btn-outline-primary calendar-view-btn" data-view="week">Week</button>
-                        <button type="button" class="btn btn-sm btn-outline-primary calendar-view-btn" data-view="month">Month</button>
                         <button type="button" class="btn btn-sm btn-outline-primary calendar-view-btn" data-view="year">Year</button>
                     </div>
-                    <div class="calendar-view"
-                         id="calendar-view"
-                         hx-get="{{ $baseUrl }}/view/{{ $viewCalendarId }}/{{ $viewSlug }}?view={{ $defaultView }}"
-                         hx-trigger="load"
-                         hx-swap="innerHTML">
-                        <div class="calendar-loading">
-                            <div class="calendar-loading-spinner"></div>
-                            <span>Loading calendar...</span>
-                        </div>
+                    <div class="calendar-view-wrapper">
+                        <iframe
+                            id="calendar-view-iframe"
+                            class="calendar-iframe"
+                            src="{{ $baseUrl }}/view/{{ $viewCalendarId }}/{{ $viewSlug }}?view={{ $defaultView }}"
+                            loading="lazy"
+                            title="Event Calendar">
+                        </iframe>
                     </div>
                 </div>
             </div>
@@ -38,15 +37,14 @@
             <div class="col-lg-5 mb-4">
                 <div class="calendar-booking-container">
                     <h2>{{ default "Book Your Event" $calendar.booking_title }}</h2>
-                    <div class="calendar-booking"
-                         id="calendar-booking"
-                         hx-get="{{ $baseUrl }}/book/{{ $bookCalendarId }}/{{ $bookSlug }}"
-                         hx-trigger="load"
-                         hx-swap="innerHTML">
-                        <div class="calendar-loading">
-                            <div class="calendar-loading-spinner"></div>
-                            <span>Loading booking form...</span>
-                        </div>
+                    <div class="calendar-booking-wrapper">
+                        <iframe
+                            id="calendar-booking-iframe"
+                            class="calendar-iframe"
+                            src="{{ $baseUrl }}/book/{{ $bookCalendarId }}/{{ $bookSlug }}"
+                            loading="lazy"
+                            title="Book Your Event">
+                        </iframe>
                     </div>
                 </div>
             </div>
@@ -60,16 +58,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const baseUrl = {{ $baseUrl | safeJS }};
     const viewCalendarId = {{ $viewCalendarId | safeJS }};
     const viewSlug = {{ $viewSlug | safeJS }};
-    const calendarView = document.getElementById('calendar-view');
+    const viewIframe = document.getElementById('calendar-view-iframe');
     const viewButtons = document.querySelectorAll('.calendar-view-btn');
-
-    // Set initial active button
-    const defaultView = {{ $defaultView | safeJS }};
-    viewButtons.forEach(btn => {
-        if (btn.dataset.view === defaultView) {
-            btn.classList.add('active');
-        }
-    });
 
     // Handle view switching
     viewButtons.forEach(btn => {
@@ -81,8 +71,8 @@ document.addEventListener('DOMContentLoaded', function() {
             viewButtons.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
 
-            // Load new view via HTMX
-            htmx.ajax('GET', url, {target: '#calendar-view', swap: 'innerHTML'});
+            // Update iframe src
+            viewIframe.src = url;
         });
     });
 });

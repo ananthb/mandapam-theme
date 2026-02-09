@@ -4,18 +4,16 @@
 {{- $baseUrl := $calendar.base_url -}}
 {{- $calendarId := default (default $calendar.calendar_id $calendar.book_calendar_id) (.Get "calendar_id") -}}
 {{- $slug := default (default $calendar.slug $calendar.book_slug) (.Get "slug") -}}
-{{- $height := default "300px" (.Get "height") -}}
+{{- $height := default "600px" (.Get "height") -}}
 
-<div class="calendar-booking-embed"
-     id="calendar-booking-{{ $calendarId }}-{{ $slug }}"
-     hx-get="{{ $baseUrl }}/book/{{ $calendarId }}/{{ $slug }}"
-     hx-trigger="load"
-     hx-swap="innerHTML"
-     style="min-height: {{ $height }};">
-    <div class="calendar-loading">
-        <div class="calendar-loading-spinner"></div>
-        <span>Loading booking form...</span>
-    </div>
+<div class="calendar-booking-embed-wrapper">
+    <iframe
+        class="calendar-iframe"
+        src="{{ $baseUrl }}/book/{{ $calendarId }}/{{ $slug }}"
+        style="height: {{ $height }};"
+        loading="lazy"
+        title="Book Your Event">
+    </iframe>
 </div>
 {{- else -}}
 <p class="calendar-error">Calendar not configured. Please add calendar settings to data/contact.toml.</p>
