@@ -59,9 +59,9 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const baseUrl = {{ $baseUrl | safeJS }};
-    const viewCalendarId = {{ $viewCalendarId | safeJS }};
-    const viewSlug = {{ $viewSlug | safeJS }};
+    const baseUrl = "{{ $baseUrl | safeJS }}";
+    const viewCalendarId = "{{ $viewCalendarId | safeJS }}";
+    const viewSlug = "{{ $viewSlug | safeJS }}";
     const viewButtons = document.querySelectorAll('.calendar-view-btn');
 
     // Handle view switching
