@@ -20,14 +20,16 @@
                         <button type="button" class="btn btn-sm btn-outline-primary calendar-view-btn" data-view="week">Week</button>
                         <button type="button" class="btn btn-sm btn-outline-primary calendar-view-btn" data-view="year">Year</button>
                     </div>
-                    <div class="calendar-view-wrapper">
-                        <iframe
-                            id="calendar-view-iframe"
-                            class="calendar-iframe"
-                            src="{{ $baseUrl }}/view/{{ $viewCalendarId }}/{{ $viewSlug }}?view={{ $defaultView }}"
-                            loading="lazy"
-                            title="Event Calendar">
-                        </iframe>
+                    <div class="calendar-view"
+                         id="calendar-view"
+                         hx-get="{{ $baseUrl }}/view/{{ $viewCalendarId }}/{{ $viewSlug }}?view={{ $defaultView }}"
+                         hx-trigger="load"
+                         hx-select=".container"
+                         hx-swap="innerHTML">
+                        <div class="calendar-loading">
+                            <div class="calendar-loading-spinner"></div>
+                            <span>Loading calendar...</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -37,14 +39,16 @@
             <div class="col-lg-5 mb-4">
                 <div class="calendar-booking-container">
                     <h2>{{ default "Book Your Event" $calendar.booking_title }}</h2>
-                    <div class="calendar-booking-wrapper">
-                        <iframe
-                            id="calendar-booking-iframe"
-                            class="calendar-iframe"
-                            src="{{ $baseUrl }}/book/{{ $bookCalendarId }}/{{ $bookSlug }}"
-                            loading="lazy"
-                            title="Book Your Event">
-                        </iframe>
+                    <div class="calendar-booking"
+                         id="calendar-booking"
+                         hx-get="{{ $baseUrl }}/book/{{ $bookCalendarId }}/{{ $bookSlug }}"
+                         hx-trigger="load"
+                         hx-select=".container"
+                         hx-swap="innerHTML">
+                        <div class="calendar-loading">
+                            <div class="calendar-loading-spinner"></div>
+                            <span>Loading booking form...</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -58,7 +62,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const baseUrl = {{ $baseUrl | safeJS }};
     const viewCalendarId = {{ $viewCalendarId | safeJS }};
     const viewSlug = {{ $viewSlug | safeJS }};
-    const viewIframe = document.getElementById('calendar-view-iframe');
     const viewButtons = document.querySelectorAll('.calendar-view-btn');
 
     // Handle view switching
@@ -71,8 +74,8 @@ document.addEventListener('DOMContentLoaded', function() {
             viewButtons.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
 
-            // Update iframe src
-            viewIframe.src = url;
+            // Load new view via HTMX
+            htmx.ajax('GET', url, {target: '#calendar-view', swap: 'innerHTML', select: '.container'});
         });
     });
 });

@@ -50,37 +50,43 @@
   }
 }
 
-// Calendar iframe wrapper
-.calendar-view-wrapper,
-.calendar-booking-wrapper,
-.calendar-view-embed-wrapper,
-.calendar-booking-embed-wrapper {
+// Calendar view and booking content areas
+.calendar-view,
+.calendar-booking,
+.calendar-view-embed,
+.calendar-booking-embed {
+  min-height: 300px;
   position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-  background: #fafafa;
 }
 
-.calendar-view-wrapper {
-  min-height: 500px;
+.calendar-view {
+  min-height: 400px;
 }
 
-.calendar-booking-wrapper {
-  min-height: 600px;
+// Loading state
+.calendar-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  color: #888;
+  gap: 1rem;
 }
 
-// Calendar iframe styling
-.calendar-iframe {
-  width: 100%;
-  min-height: 500px;
-  border: none;
-  border-radius: 8px;
-  display: block;
+.calendar-loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(175, 134, 34, 0.2);
+  border-top-color: $primary;
+  border-radius: 50%;
+  animation: calendar-spin 1s linear infinite;
 }
 
-.calendar-booking-wrapper .calendar-iframe,
-.calendar-booking-embed-wrapper .calendar-iframe {
-  min-height: 600px;
+@keyframes calendar-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 // Error message
@@ -91,6 +97,164 @@
   border-radius: 8px;
   color: #856404;
 }
+
+/* purgecss start ignore */
+// Override calendar-worker CSS variables for theme integration
+.calendar-view,
+.calendar-booking,
+.calendar-view-embed,
+.calendar-booking-embed {
+  // Set CSS variables for calendar-worker theming
+  --cal-primary: #{$primary};
+  --cal-text: #333333;
+  --cal-bg: transparent;
+  --cal-border-radius: 8px;
+  --cal-font: 'Open Sans', system-ui, -apple-system, sans-serif;
+
+  // Calendar-worker button overrides
+  .btn {
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  // Calendar table styling
+  .calendar {
+    border-radius: 8px;
+    overflow: hidden;
+
+    th {
+      background: linear-gradient(180deg, #fffdf8 0%, #fff 100%);
+      color: #333;
+      font-weight: 600;
+    }
+
+    td {
+      transition: background 0.2s ease;
+
+      &:hover {
+        background: #fffdf8;
+      }
+    }
+
+    .event, .booking {
+      border-radius: 4px;
+    }
+  }
+
+  // Navigation styling
+  .nav {
+    h2 {
+      color: #333;
+      text-shadow: none;
+      font-size: 1.25rem;
+    }
+  }
+
+  // Form styling for booking
+  form {
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+      color: #333;
+      font-size: 0.9rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="time"],
+    input[type="datetime-local"],
+    input:not([type]),
+    textarea,
+    select {
+      width: 100%;
+      padding: 0.6rem 0.8rem;
+      font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+      font-size: 0.95rem;
+      border: 2px solid rgba(175, 134, 34, 0.3);
+      border-radius: 8px;
+      background: #fffdf8;
+      color: #333;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      box-sizing: border-box;
+
+      &:focus {
+        outline: none;
+        border-color: $primary;
+        box-shadow: 0 0 0 3px rgba(175, 134, 34, 0.15);
+      }
+
+      &::placeholder {
+        color: #999;
+      }
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    button[type="submit"],
+    input[type="submit"] {
+      display: inline-block;
+      padding: 0.7rem 1.5rem;
+      font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(135deg, #8B6914 0%, $primary 50%, #D4A84B 100%);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(175, 134, 34, 0.3);
+
+      &:hover {
+        background: linear-gradient(135deg, $primary 0%, #D4A84B 50%, #FFD700 100%);
+        box-shadow: 0 6px 20px rgba(175, 134, 34, 0.4);
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  // Success/error messages
+  .success,
+  .message-success,
+  .alert-success {
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+
+  .error,
+  .message-error,
+  .alert-danger {
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+}
+/* purgecss end ignore */
 
 // Responsive adjustments
 @media (max-width: 991px) {
@@ -113,16 +277,8 @@
     padding: 1rem;
   }
 
-  .calendar-view-wrapper {
-    min-height: 400px;
-  }
-
-  .calendar-iframe {
-    min-height: 400px;
-  }
-
-  .calendar-booking-wrapper .calendar-iframe,
-  .calendar-booking-embed-wrapper .calendar-iframe {
-    min-height: 500px;
+  .calendar-view,
+  .calendar-booking {
+    min-height: 300px;
   }
 }
