@@ -4,9 +4,10 @@
 {{- if $url -}}
 {{- $view := default (default "month" $calendar.default_view) (.Get "view") -}}
 {{- $height := default "400px" (.Get "height") -}}
+{{- $noTitle := .Get "no_title" -}}
 
 <div class="calendar-view-embed"
-     hx-get="{{ $url }}?view={{ $view }}"
+     hx-get="{{ $url }}?view={{ $view }}{{ if $noTitle }}&no_title=1{{ end }}"
      hx-trigger="load"
      hx-swap="innerHTML"
      style="min-height: {{ $height }};">

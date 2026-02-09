@@ -3,9 +3,10 @@
 {{- $url := default $calendar.book_url (.Get "url") -}}
 {{- if $url -}}
 {{- $height := default "300px" (.Get "height") -}}
+{{- $noTitle := .Get "no_title" -}}
 
 <div class="calendar-booking-embed"
-     hx-get="{{ $url }}"
+     hx-get="{{ $url }}{{ if $noTitle }}?no_title=1{{ end }}"
      hx-trigger="load"
      hx-swap="innerHTML"
      style="min-height: {{ $height }};">

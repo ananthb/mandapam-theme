@@ -15,7 +15,7 @@
                     <h2>{{ default "Event Calendar" $calendar.view_title }}</h2>
                     <div class="calendar-view"
                          id="calendar-view"
-                         hx-get="{{ $viewUrl }}?view={{ $defaultView }}"
+                         hx-get="{{ $viewUrl }}?view={{ $defaultView }}&no_title=1"
                          hx-trigger="load"
                          hx-swap="innerHTML">
                         <div class="calendar-loading">
@@ -34,7 +34,7 @@
                     <h2>{{ default "Book Your Event" $calendar.booking_title }}</h2>
                     <div class="calendar-booking"
                          id="calendar-booking"
-                         hx-get="{{ $bookUrl }}"
+                         hx-get="{{ $bookUrl }}?no_title=1"
                          hx-trigger="load"
                          hx-swap="innerHTML">
                         <div class="calendar-loading">
