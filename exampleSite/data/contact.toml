@@ -15,17 +15,11 @@ form = "https://form-worker.srv-cf.workers.dev/f/mandapam-theme-demo"
 # Calendar Worker integration
 # See: https://github.com/ananthb/calendar-worker
 [calendar]
-  # Base URL for the calendar worker (without trailing slash)
-  base_url = "https://calendar-worker.srv-cf.workers.dev"
-  # Calendar IDs and slugs for view and booking (can be different)
-  view_calendar_id = "16765227-7e8e-4552-9a28-79bed427f31f"
-  view_slug = "fine-swan-4c7"
-  book_calendar_id = "16765227-7e8e-4552-9a28-79bed427f31f"
-  book_slug = "bright-seal-c0f"
+  # Full URLs for calendar view and booking form
+  view_url = "https://calendar-worker.srv-cf.workers.dev/view/16765227-7e8e-4552-9a28-79bed427f31f/fine-swan-4c7"
+  book_url = "https://calendar-worker.srv-cf.workers.dev/book/16765227-7e8e-4552-9a28-79bed427f31f/bright-seal-c0f"
   # Default view mode: "week", "month", "year", or "endless"
   default_view = "month"
-  # Enable booking form
-  booking_enabled = true
   # Show calendar section on homepage (set to false to only show on /calendar/ page)
   show_on_homepage = true
   # Section titles

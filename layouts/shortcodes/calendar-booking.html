@@ -1,13 +1,11 @@
 {{- $contact := .Site.Data.contact -}}
 {{- $calendar := $contact.calendar -}}
-{{- if $calendar -}}
-{{- $baseUrl := $calendar.base_url -}}
-{{- $calendarId := default (default $calendar.calendar_id $calendar.book_calendar_id) (.Get "calendar_id") -}}
-{{- $slug := default (default $calendar.slug $calendar.book_slug) (.Get "slug") -}}
+{{- $url := default $calendar.book_url (.Get "url") -}}
+{{- if $url -}}
 {{- $height := default "300px" (.Get "height") -}}
 
 <div class="calendar-booking-embed"
-     hx-get="{{ $baseUrl }}/book/{{ $calendarId }}/{{ $slug }}"
+     hx-get="{{ $url }}"
      hx-trigger="load"
      hx-swap="innerHTML"
      style="min-height: {{ $height }};">
@@ -17,5 +15,5 @@
     </div>
 </div>
 {{- else -}}
-<p class="calendar-error">Calendar not configured. Please add calendar settings to data/contact.toml.</p>
+<p class="calendar-error">Calendar not configured. Please add calendar.book_url to data/contact.toml.</p>
 {{- end -}}
