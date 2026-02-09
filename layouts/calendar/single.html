@@ -1,0 +1,21 @@
+{{ define "main" }}
+{{ partial "hero-image-setheight.html" (dict "background" .Params.heroBackground "heading" .Params.heroHeading "subheading" .Params.heroSubHeading "section" .Section "content" .)}}
+
+{{ if .Content }}
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            {{ .Content }}
+        </div>
+    </div>
+</div>
+{{ end }}
+
+{{ partial "calendar-section.html" . }}
+
+{{ with .Params.showContact }}
+{{ if . }}
+{{ partial "contact-section.html" $ }}
+{{ end }}
+{{ end }}
+{{ end }}

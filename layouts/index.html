@@ -18,6 +18,12 @@
 
 {{ partial "contact-section.html" . }}
 
+{{ if .Site.Data.contact.calendar }}
+{{ if not (eq .Site.Data.contact.calendar.show_on_homepage false) }}
+{{ partial "calendar-section.html" . }}
+{{ end }}
+{{ end }}
+
 {{ $headless := .Site.GetPage "/homepage" }}
 {{ $reusablePages := $headless.Resources.ByType "page" }}
 {{ range first 1 $reusablePages }}

@@ -1,0 +1,89 @@
+{{- $contact := .Site.Data.contact -}}
+{{- $calendar := $contact.calendar -}}
+{{- if $calendar -}}
+{{- $baseUrl := $calendar.base_url -}}
+{{- $calendarId := $calendar.calendar_id -}}
+{{- $viewSlug := default $calendar.slug $calendar.view_slug -}}
+{{- $bookSlug := default $calendar.slug $calendar.book_slug -}}
+{{- $defaultView := default "month" $calendar.default_view -}}
+
+<section id="calendar" class="calendar-section">
+    <div class="container">
+        <div class="row">
+            {{/* Calendar View Column */}}
+            <div class="col-lg-7 mb-4">
+                <div class="calendar-view-container">
+                    <h2>{{ default "Event Calendar" $calendar.view_title }}</h2>
+                    <div class="calendar-view-controls">
+                        <button type="button" class="btn btn-sm btn-outline-primary calendar-view-btn" data-view="week">Week</button>
+                        <button type="button" class="btn btn-sm btn-outline-primary calendar-view-btn" data-view="month">Month</button>
+                        <button type="button" class="btn btn-sm btn-outline-primary calendar-view-btn" data-view="year">Year</button>
+                    </div>
+                    <div class="calendar-view"
+                         id="calendar-view"
+                         hx-get="{{ $baseUrl }}/view/{{ $calendarId }}/{{ $viewSlug }}?view={{ $defaultView }}"
+                         hx-trigger="load"
+                         hx-swap="innerHTML">
+                        <div class="calendar-loading">
+                            <div class="calendar-loading-spinner"></div>
+                            <span>Loading calendar...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{/* Booking Form Column */}}
+            {{ if $calendar.booking_enabled }}
+            <div class="col-lg-5 mb-4">
+                <div class="calendar-booking-container">
+                    <h2>{{ default "Book Your Event" $calendar.booking_title }}</h2>
+                    <div class="calendar-booking"
+                         id="calendar-booking"
+                         hx-get="{{ $baseUrl }}/book/{{ $calendarId }}/{{ $bookSlug }}"
+                         hx-trigger="load"
+                         hx-swap="innerHTML">
+                        <div class="calendar-loading">
+                            <div class="calendar-loading-spinner"></div>
+                            <span>Loading booking form...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const baseUrl = {{ $baseUrl | safeJS }};
+    const calendarId = {{ $calendarId | safeJS }};
+    const viewSlug = {{ $viewSlug | safeJS }};
+    const calendarView = document.getElementById('calendar-view');
+    const viewButtons = document.querySelectorAll('.calendar-view-btn');
+
+    // Set initial active button
+    const defaultView = {{ $defaultView | safeJS }};
+    viewButtons.forEach(btn => {
+        if (btn.dataset.view === defaultView) {
+            btn.classList.add('active');
+        }
+    });
+
+    // Handle view switching
+    viewButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const view = this.dataset.view;
+            const url = `${baseUrl}/view/${calendarId}/${viewSlug}?view=${view}`;
+
+            // Update active state
+            viewButtons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+
+            // Load new view via HTMX
+            htmx.ajax('GET', url, {target: '#calendar-view', swap: 'innerHTML'});
+        });
+    });
+});
+</script>
+{{- end -}}

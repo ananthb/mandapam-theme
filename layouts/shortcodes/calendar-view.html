@@ -1,0 +1,23 @@
+{{- $contact := .Site.Data.contact -}}
+{{- $calendar := $contact.calendar -}}
+{{- if $calendar -}}
+{{- $baseUrl := $calendar.base_url -}}
+{{- $calendarId := default $calendar.calendar_id (.Get "calendar_id") -}}
+{{- $slug := default (default $calendar.slug $calendar.view_slug) (.Get "slug") -}}
+{{- $view := default (default "month" $calendar.default_view) (.Get "view") -}}
+{{- $height := default "400px" (.Get "height") -}}
+
+<div class="calendar-view-embed"
+     id="calendar-view-{{ $calendarId }}-{{ $slug }}"
+     hx-get="{{ $baseUrl }}/view/{{ $calendarId }}/{{ $slug }}?view={{ $view }}"
+     hx-trigger="load"
+     hx-swap="innerHTML"
+     style="min-height: {{ $height }};">
+    <div class="calendar-loading">
+        <div class="calendar-loading-spinner"></div>
+        <span>Loading calendar...</span>
+    </div>
+</div>
+{{- else -}}
+<p class="calendar-error">Calendar not configured. Please add calendar settings to data/contact.toml.</p>
+{{- end -}}

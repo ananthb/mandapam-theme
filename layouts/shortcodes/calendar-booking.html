@@ -1,0 +1,22 @@
+{{- $contact := .Site.Data.contact -}}
+{{- $calendar := $contact.calendar -}}
+{{- if $calendar -}}
+{{- $baseUrl := $calendar.base_url -}}
+{{- $calendarId := default $calendar.calendar_id (.Get "calendar_id") -}}
+{{- $slug := default (default $calendar.slug $calendar.book_slug) (.Get "slug") -}}
+{{- $height := default "300px" (.Get "height") -}}
+
+<div class="calendar-booking-embed"
+     id="calendar-booking-{{ $calendarId }}-{{ $slug }}"
+     hx-get="{{ $baseUrl }}/book/{{ $calendarId }}/{{ $slug }}"
+     hx-trigger="load"
+     hx-swap="innerHTML"
+     style="min-height: {{ $height }};">
+    <div class="calendar-loading">
+        <div class="calendar-loading-spinner"></div>
+        <span>Loading booking form...</span>
+    </div>
+</div>
+{{- else -}}
+<p class="calendar-error">Calendar not configured. Please add calendar settings to data/contact.toml.</p>
+{{- end -}}

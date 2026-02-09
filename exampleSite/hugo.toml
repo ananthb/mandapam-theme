@@ -44,6 +44,10 @@ enableGitInfo = true
     url = "/gallery/"
     weight = 40
   [[menus.main]]
+    name = "Calendar"
+    url = "/calendar/"
+    weight = 45
+  [[menus.main]]
     name = "Contact Us"
     url = "/#contact"
     weight = 50

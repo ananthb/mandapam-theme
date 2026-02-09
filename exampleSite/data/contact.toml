@@ -11,3 +11,23 @@ form = "https://form-worker.srv-cf.workers.dev/f/mandapam-theme-demo"
 
 [map]
   iframe = '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3549.4506013132498!2d78.03969661501857!3d27.175144783017045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39747121d702ff6d%3A0xdd2ae4803f767dde!2sTaj%20Mahal!5e0!3m2!1sen!2sin!4v1707405600000!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>'
+
+# Calendar Worker integration
+# See: https://github.com/ananthb/calendar-worker
+[calendar]
+  # Base URL for the calendar worker (without trailing slash)
+  base_url = "https://calendar-worker.srv-cf.workers.dev"
+  # Calendar ID for this venue
+  calendar_id = "16765227-7e8e-4552-9a28-79bed427f31f"
+  # Slugs for view and booking (can be different)
+  view_slug = "fine-swan-4c7"
+  book_slug = "bright-seal-c0f"
+  # Default view mode: "week", "month", "year", or "endless"
+  default_view = "month"
+  # Enable booking form
+  booking_enabled = true
+  # Show calendar section on homepage (set to false to only show on /calendar/ page)
+  show_on_homepage = true
+  # Section titles
+  view_title = "Event Calendar"
+  booking_title = "Book Your Event"
