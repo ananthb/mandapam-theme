@@ -2,7 +2,7 @@
 {{- $calendar := $contact.calendar -}}
 {{- if $calendar -}}
 {{- $baseUrl := $calendar.base_url -}}
-{{- $calendarId := default $calendar.calendar_id (.Get "calendar_id") -}}
+{{- $calendarId := default (default $calendar.calendar_id $calendar.view_calendar_id) (.Get "calendar_id") -}}
 {{- $slug := default (default $calendar.slug $calendar.view_slug) (.Get "slug") -}}
 {{- $view := default (default "month" $calendar.default_view) (.Get "view") -}}
 {{- $height := default "400px" (.Get "height") -}}

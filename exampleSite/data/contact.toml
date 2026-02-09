@@ -17,10 +17,10 @@ form = "https://form-worker.srv-cf.workers.dev/f/mandapam-theme-demo"
 [calendar]
   # Base URL for the calendar worker (without trailing slash)
   base_url = "https://calendar-worker.srv-cf.workers.dev"
-  # Calendar ID for this venue
-  calendar_id = "16765227-7e8e-4552-9a28-79bed427f31f"
-  # Slugs for view and booking (can be different)
+  # Calendar IDs and slugs for view and booking (can be different)
+  view_calendar_id = "16765227-7e8e-4552-9a28-79bed427f31f"
   view_slug = "fine-swan-4c7"
+  book_calendar_id = "16765227-7e8e-4552-9a28-79bed427f31f"
   book_slug = "bright-seal-c0f"
   # Default view mode: "week", "month", "year", or "endless"
   default_view = "month"
