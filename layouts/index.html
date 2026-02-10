@@ -18,8 +18,8 @@
 
 {{ partial "contact-section.html" . }}
 
-{{ if .Site.Data.contact.calendar }}
-{{ if not (eq .Site.Data.contact.calendar.show_on_homepage false) }}
+{{ if .Site.Data.contact.concierge }}
+{{ if not (eq .Site.Data.contact.concierge.show_on_homepage false) }}
 {{ partial "calendar-section.html" . }}
 {{ end }}
 {{ end }}

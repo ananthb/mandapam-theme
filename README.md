@@ -87,7 +87,6 @@ phone = ["+91 12345 67890"]
 whatsapp = ["911234567890"]
 email = ["info@example.com"]
 address = "123 Street, City, State, Country"
-form = "https://your-concierge-worker.workers.dev/f/your-form"  # Optional contact form URL
 
 [socials]
   Facebook = "https://facebook.com/example"
@@ -97,30 +96,16 @@ form = "https://your-concierge-worker.workers.dev/f/your-form"  # Optional conta
   iframe = '<iframe src="https://www.google.com/maps/embed?..." width="100%" height="300"></iframe>'
 ```
 
-### Contact Form
+### Concierge Worker Integration
 
-The theme supports embedding contact forms via [concierge-worker](https://github.com/ananthb/concierge-worker). To enable the contact form:
-
-1. Set up a concierge-worker instance
-2. Create a form in the admin dashboard
-3. Add your domain to the form's "Allowed Origins"
-4. Add the form URL to `data/contact.toml`:
+The theme supports contact forms, event calendars, and booking forms via [concierge-worker](https://github.com/ananthb/concierge-worker). Add to `data/contact.toml`:
 
 ```toml
-form = "https://your-concierge-worker.workers.dev/f/your-form-slug"
-```
-
-If no `form` URL is provided, the contact form section will not be rendered.
-
-### Calendar Integration
-
-The theme supports embedding event calendars and booking forms via [concierge-worker](https://github.com/ananthb/concierge-worker). Add to `data/contact.toml`:
-
-```toml
-[calendar]
+[concierge]
+  form_url = "https://concierge.example.com/f/your-form-slug"
   view_url = "https://concierge.example.com/view/your-calendar-id/your-slug"
   book_url = "https://concierge.example.com/book/your-calendar-id/your-slug"
-  show_on_homepage = false
+  show_on_homepage = true
   view_title = "Event Calendar"
   booking_title = "Book Your Event"
 ```

@@ -2,8 +2,6 @@ phone = ["+91 562 222 6431", "+91 562 222 7261"]
 whatsapp = ["915622226431"]
 email = ["info@tajmandapam.com", "bookings@tajmandapam.com"]
 address = "Taj Mahal, Dharmapuri, Forest Colony, Tajganj, Agra, Uttar Pradesh 282001, India"
-form = "https://concierge-worker.srv-cf.workers.dev/f/mandapam-theme-demo"
-
 [socials]
   Facebook = "https://facebook.com/tajmandapam"
   Instagram = "https://instagram.com/tajmandapam"
@@ -14,12 +12,10 @@ form = "https://concierge-worker.srv-cf.workers.dev/f/mandapam-theme-demo"
 
 # Concierge Worker integration
 # See: https://github.com/ananthb/concierge-worker
-[calendar]
-  # Full URLs for calendar view and booking form
+[concierge]
+  form_url = "https://concierge.kedi.dev/f/mandapam-theme-demo"
   view_url = "https://concierge.kedi.dev/view/5f401210-54fa-4df0-9032-320480471053/keen-crow-rj2"
   book_url = "https://concierge.kedi.dev/book/5f401210-54fa-4df0-9032-320480471053/smart-wren-bls"
-  # Show calendar section on homepage (set to false to only show on /calendar/ page)
   show_on_homepage = true
-  # Section titles
   view_title = "Event Calendar"
   booking_title = "Book Your Event"

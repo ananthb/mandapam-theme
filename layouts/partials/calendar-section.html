@@ -1,8 +1,8 @@
 {{- $contact := .Site.Data.contact -}}
-{{- $calendar := $contact.calendar -}}
-{{- if $calendar -}}
-{{- $viewUrl := $calendar.view_url -}}
-{{- $bookUrl := $calendar.book_url -}}
+{{- $concierge := $contact.concierge -}}
+{{- if $concierge -}}
+{{- $viewUrl := $concierge.view_url -}}
+{{- $bookUrl := $concierge.book_url -}}
 
 <section id="calendar" class="calendar-section">
     <div class="container">
@@ -11,7 +11,7 @@
             {{ if $viewUrl }}
             <div class="col-lg-7 mb-4">
                 <div class="calendar-view-container">
-                    <h2>{{ default "Event Calendar" $calendar.view_title }}</h2>
+                    <h2>{{ default "Event Calendar" $concierge.view_title }}</h2>
                     <div class="calendar-view"
                          id="calendar-view"
                          hx-get="{{ $viewUrl }}?no_title=1"
@@ -30,7 +30,7 @@
             {{ if $bookUrl }}
             <div class="col-lg-5 mb-4">
                 <div class="calendar-booking-container">
-                    <h2>{{ default "Book Your Event" $calendar.booking_title }}</h2>
+                    <h2>{{ default "Book Your Event" $concierge.booking_title }}</h2>
                     <div class="calendar-booking"
                          id="calendar-booking"
                          hx-get="{{ $bookUrl }}?no_title=1"

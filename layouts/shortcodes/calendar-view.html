@@ -1,6 +1,6 @@
 {{- $contact := .Site.Data.contact -}}
-{{- $calendar := $contact.calendar -}}
-{{- $url := default $calendar.view_url (.Get "url") -}}
+{{- $concierge := $contact.concierge -}}
+{{- $url := default $concierge.view_url (.Get "url") -}}
 {{- if $url -}}
 {{- $height := default "400px" (.Get "height") -}}
 {{- $noTitle := .Get "no_title" -}}
@@ -16,5 +16,5 @@
     </div>
 </div>
 {{- else -}}
-<p class="calendar-error">Calendar not configured. Please add calendar.view_url to data/contact.toml.</p>
+<p class="calendar-error">Calendar not configured. Please add concierge.view_url to data/contact.toml.</p>
 {{- end -}}
