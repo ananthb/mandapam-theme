@@ -12,7 +12,7 @@ A Hugo theme for event venues and wedding halls (mandapams).
 - Gallery section with lightbox support (GLightbox)
 - Venue page with hero image
 - Integrated contact section with phone, WhatsApp, email, form, and map
-- Calendar integration with [calendar-worker](https://github.com/ananthb/calendar-worker) for event views and booking
+- Calendar integration with [concierge-worker](https://github.com/ananthb/concierge-worker) for event views and booking
 - Gold gradient heading styles with 3D shadow effects
 - Configurable logo and site parameters
 - PostCSS with autoprefixer for production builds
@@ -87,7 +87,7 @@ phone = ["+91 12345 67890"]
 whatsapp = ["911234567890"]
 email = ["info@example.com"]
 address = "123 Street, City, State, Country"
-form = "https://your-form-worker.workers.dev/f/your-form"  # Optional contact form URL
+form = "https://your-concierge-worker.workers.dev/f/your-form"  # Optional contact form URL
 
 [socials]
   Facebook = "https://facebook.com/example"
@@ -99,26 +99,26 @@ form = "https://your-form-worker.workers.dev/f/your-form"  # Optional contact fo
 
 ### Contact Form
 
-The theme supports embedding contact forms via [form-worker](https://github.com/ananthb/form-worker). To enable the contact form:
+The theme supports embedding contact forms via [concierge-worker](https://github.com/ananthb/concierge-worker). To enable the contact form:
 
-1. Set up a form-worker instance
+1. Set up a concierge-worker instance
 2. Create a form in the admin dashboard
 3. Add your domain to the form's "Allowed Origins"
 4. Add the form URL to `data/contact.toml`:
 
 ```toml
-form = "https://your-form-worker.workers.dev/f/your-form-slug"
+form = "https://your-concierge-worker.workers.dev/f/your-form-slug"
 ```
 
 If no `form` URL is provided, the contact form section will not be rendered.
 
 ### Calendar Integration
 
-The theme supports embedding event calendars and booking forms via [calendar-worker](https://github.com/ananthb/calendar-worker). Add to `data/contact.toml`:
+The theme supports embedding event calendars and booking forms via [concierge-worker](https://github.com/ananthb/concierge-worker). Add to `data/contact.toml`:
 
 ```toml
 [calendar]
-  base_url = "https://calendar-worker.srv-cf.workers.dev"
+  base_url = "https://concierge-worker.srv-cf.workers.dev"
   view_calendar_id = "uuid-for-events"
   view_slug = "your-view-slug"
   book_calendar_id = "uuid-for-bookings"

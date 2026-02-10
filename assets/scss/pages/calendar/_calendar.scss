@@ -99,12 +99,12 @@
 }
 
 /* purgecss start ignore */
-// Override calendar-worker CSS variables for theme integration
+// Override concierge-worker CSS variables for theme integration
 .calendar-view,
 .calendar-booking,
 .calendar-view-embed,
 .calendar-booking-embed {
-  // Set CSS variables for calendar-worker theming
+  // Set CSS variables for concierge-worker theming
   --cal-primary: #{$primary};
   --cal-text: #333333;
   --cal-bg: transparent;
