@@ -16,10 +16,8 @@ form = "https://concierge-worker.srv-cf.workers.dev/f/mandapam-theme-demo"
 # See: https://github.com/ananthb/concierge-worker
 [calendar]
   # Full URLs for calendar view and booking form
-  view_url="https://concierge.kedi.dev/view/5f401210-54fa-4df0-9032-320480471053/keen-crow-rj2"
-  book_url="https://concierge.kedi.dev/book/5f401210-54fa-4df0-9032-320480471053/smart-wren-bls"
-  # Default view mode: "week", "month", "year", or "endless"
-  default_view = "week"
+  view_url = "https://concierge.kedi.dev/view/5f401210-54fa-4df0-9032-320480471053/keen-crow-rj2"
+  book_url = "https://concierge.kedi.dev/book/5f401210-54fa-4df0-9032-320480471053/smart-wren-bls"
   # Show calendar section on homepage (set to false to only show on /calendar/ page)
   show_on_homepage = true
   # Section titles

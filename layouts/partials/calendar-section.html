@@ -3,7 +3,6 @@
 {{- if $calendar -}}
 {{- $viewUrl := $calendar.view_url -}}
 {{- $bookUrl := $calendar.book_url -}}
-{{- $defaultView := default "month" $calendar.default_view -}}
 
 <section id="calendar" class="calendar-section">
     <div class="container">
@@ -15,7 +14,7 @@
                     <h2>{{ default "Event Calendar" $calendar.view_title }}</h2>
                     <div class="calendar-view"
                          id="calendar-view"
-                         hx-get="{{ $viewUrl }}?view={{ $defaultView }}&no_title=1"
+                         hx-get="{{ $viewUrl }}?no_title=1"
                          hx-trigger="load"
                          hx-swap="innerHTML">
                         <div class="calendar-loading">

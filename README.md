@@ -118,13 +118,8 @@ The theme supports embedding event calendars and booking forms via [concierge-wo
 
 ```toml
 [calendar]
-  base_url = "https://concierge-worker.srv-cf.workers.dev"
-  view_calendar_id = "uuid-for-events"
-  view_slug = "your-view-slug"
-  book_calendar_id = "uuid-for-bookings"
-  book_slug = "your-book-slug"
-  default_view = "month"  # week, month, or year
-  booking_enabled = true
+  view_url = "https://concierge.example.com/view/your-calendar-id/your-slug"
+  book_url = "https://concierge.example.com/book/your-calendar-id/your-slug"
   show_on_homepage = false
   view_title = "Event Calendar"
   booking_title = "Book Your Event"
