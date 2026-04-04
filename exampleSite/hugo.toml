@@ -14,6 +14,7 @@ enableGitInfo = true
   logo = "logos/logo.png"
   services_heading = "Lorem Ipsum Offerings"
   google_analytics_id = ""
+  gtm_id = ""
   github_repository = "ananthb/mandapam-theme"
   [params.homepage_meta_tags]
     meta_description = "Lorem ipsum dolor sit amet consectetur adipiscing elit"

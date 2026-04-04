@@ -4,7 +4,7 @@
   background: linear-gradient(180deg, #fff 0%, #fffdf8 100%);
 
   h2 {
-    color: #333333;
+    color: $text-color;
     text-shadow: 0 0 10px rgba(255, 215, 0, 0.8),
                  0 0 20px rgba(255, 215, 0, 0.6),
                  0 0 40px rgba(255, 215, 0, 0.4),
@@ -42,9 +42,9 @@
     transition: all 0.2s ease;
 
     &.active {
-      background: linear-gradient(135deg, #8B6914 0%, $primary 50%, #D4A84B 100%);
+      background: linear-gradient(135deg, $gold-dark 0%, $primary 50%, #D4A84B 100%);
       border-color: $primary;
-      color: #fff;
+      color: $white;
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     }
   }
@@ -106,7 +106,7 @@
 .calendar-booking-embed {
   // Set CSS variables for concierge-worker theming
   --cal-primary: #{$primary};
-  --cal-text: #333333;
+  --cal-text: #{$text-color};
   --cal-bg: transparent;
   --cal-border-radius: 8px;
   --cal-font: 'Open Sans', system-ui, -apple-system, sans-serif;
@@ -130,7 +130,7 @@
 
     th {
       background: linear-gradient(180deg, #fffdf8 0%, #fff 100%);
-      color: #333;
+      color: $text-color;
       font-weight: 600;
     }
 
@@ -150,7 +150,7 @@
   // Navigation styling
   .nav {
     h2 {
-      color: #333;
+      color: $text-color;
       text-shadow: none;
       font-size: 1.25rem;
     }
@@ -166,7 +166,7 @@
       display: block;
       margin-bottom: 0.4rem;
       font-weight: 500;
-      color: #333;
+      color: $text-color;
       font-size: 0.9rem;
     }
 
@@ -186,7 +186,7 @@
       border: 2px solid rgba(175, 134, 34, 0.3);
       border-radius: 8px;
       background: #fffdf8;
-      color: #333;
+      color: $text-color;
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
       box-sizing: border-box;
 
@@ -213,8 +213,8 @@
       font-family: 'Open Sans', Helvetica, Arial, sans-serif;
       font-size: 0.95rem;
       font-weight: 600;
-      color: #fff;
-      background: linear-gradient(135deg, #8B6914 0%, $primary 50%, #D4A84B 100%);
+      color: $white;
+      background: linear-gradient(135deg, $gold-dark 0%, $primary 50%, #D4A84B 100%);
       border: none;
       border-radius: 50px;
       cursor: pointer;
@@ -222,7 +222,7 @@
       box-shadow: 0 4px 15px rgba(175, 134, 34, 0.3);
 
       &:hover {
-        background: linear-gradient(135deg, $primary 0%, #D4A84B 50%, #FFD700 100%);
+        background: linear-gradient(135deg, $primary 0%, #D4A84B 50%, $gold-light 100%);
         box-shadow: 0 6px 20px rgba(175, 134, 34, 0.4);
         transform: translateY(-2px);
       }

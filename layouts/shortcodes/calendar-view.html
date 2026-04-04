@@ -9,6 +9,8 @@
      hx-get="{{ $url }}{{ if $noTitle }}?no_title=1{{ end }}"
      hx-trigger="load"
      hx-swap="innerHTML"
+     aria-live="polite"
+     role="status"
      style="min-height: {{ $height }};">
     <div class="calendar-loading">
         <div class="calendar-loading-spinner"></div>

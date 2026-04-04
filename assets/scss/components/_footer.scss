@@ -11,19 +11,19 @@
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, #8B6914, $primary, #FFD700, $primary, #8B6914);
+    background: linear-gradient(90deg, $gold-dark, $primary, $gold-light, $primary, $gold-dark);
   }
 
   .btn {
     @include border-radius(5rem);
     border: 2px solid rgba(255, 215, 0, 0.5);
-    color: #fff;
+    color: $white;
     background: transparent;
     transition: all 0.3s ease;
 
     &:hover {
       background: linear-gradient(135deg, rgba(139, 105, 20, 0.8) 0%, rgba(175, 134, 34, 0.8) 100%);
-      border-color: #FFD700;
+      border-color: $gold-light;
       box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
     }
   }
@@ -62,7 +62,7 @@
     transition: color 0.3s ease;
 
     &:hover {
-      color: #FFD700;
+      color: $gold-light;
     }
   }
 }

@@ -4,7 +4,7 @@
   background: linear-gradient(180deg, #fff 0%, #fffdf8 100%);
 
   h2 {
-    color: #333333;
+    color: $text-color;
     text-shadow: 0 0 10px rgba(255, 215, 0, 0.8),
                  0 0 20px rgba(255, 215, 0, 0.6),
                  0 0 40px rgba(255, 215, 0, 0.4),
@@ -53,7 +53,7 @@
 // Contact form styling
 .contact-form-container {
   h3 {
-    background: linear-gradient(180deg, #FFD700 0%, $primary 50%, #8B6914 100%);
+    background: linear-gradient(180deg, $gold-light 0%, $primary 50%, $gold-dark 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -81,7 +81,7 @@
       display: block;
       margin-bottom: 0.4rem;
       font-weight: 500;
-      color: #333;
+      color: $text-color;
       font-size: 0.9rem;
     }
 
@@ -98,7 +98,7 @@
       border: 2px solid rgba(175, 134, 34, 0.3);
       border-radius: 8px;
       background: #fffdf8;
-      color: #333;
+      color: $text-color;
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
       box-sizing: border-box;
 
@@ -126,8 +126,8 @@
       font-family: 'Open Sans', Helvetica, Arial, sans-serif;
       font-size: 0.95rem;
       font-weight: 600;
-      color: #fff;
-      background: linear-gradient(135deg, #8B6914 0%, $primary 50%, #D4A84B 100%);
+      color: $white;
+      background: linear-gradient(135deg, $gold-dark 0%, $primary 50%, #D4A84B 100%);
       border: none;
       border-radius: 50px;
       cursor: pointer;
@@ -135,7 +135,7 @@
       box-shadow: 0 4px 15px rgba(175, 134, 34, 0.3);
 
       &:hover {
-        background: linear-gradient(135deg, $primary 0%, #D4A84B 50%, #FFD700 100%);
+        background: linear-gradient(135deg, $primary 0%, #D4A84B 50%, $gold-light 100%);
         box-shadow: 0 6px 20px rgba(175, 134, 34, 0.4);
         transform: translateY(-2px);
       }
@@ -174,7 +174,7 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   border: 2px solid transparent;
   background: linear-gradient(#fff, #fff) padding-box,
-              linear-gradient(135deg, #8B6914, $primary, #FFD700) border-box;
+              linear-gradient(135deg, $gold-dark, $primary, $gold-light) border-box;
 
   iframe {
     left: 0;
@@ -194,15 +194,15 @@
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #8B6914 0%, $primary 50%, #D4A84B 100%);
+  background: linear-gradient(135deg, $gold-dark 0%, $primary 50%, #D4A84B 100%);
   border: none;
-  color: #fff;
+  color: $white;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 4px 15px rgba(175, 134, 34, 0.3);
 
   &:hover,
   &:focus {
-    background: linear-gradient(135deg, $primary 0%, #D4A84B 50%, #FFD700 100%);
+    background: linear-gradient(135deg, $primary 0%, #D4A84B 50%, $gold-light 100%);
     box-shadow: 0 6px 20px rgba(175, 134, 34, 0.4),
                 0 0 0 3px rgba(255, 215, 0, 0.2);
     transform: translateY(-2px);
@@ -229,14 +229,14 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #8B6914 0%, $primary 50%, #D4A84B 100%);
+    background: linear-gradient(135deg, $gold-dark 0%, $primary 50%, #D4A84B 100%);
     transition: left 0.3s ease;
     z-index: -1;
   }
 
   &:hover,
   &:focus {
-    color: #fff;
+    color: $white;
     border-color: $primary;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 

@@ -2,7 +2,7 @@
   font-size: 2.4rem;
   line-height: 1.2;
   font-family: $font-family-heading;
-  background: linear-gradient(180deg, #FFD700 0%, $primary 50%, #8B6914 100%);
+  background: linear-gradient(180deg, $gold-light 0%, $primary 50%, $gold-dark 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -22,7 +22,7 @@
 .title-2 {
   font-family: $font-family-base;
   font-weight: light;
-  color: #333333;
+  color: $text-color;
   font-size: 2.4rem;
   @include media-breakpoint-up(md) {
     font-size: 4rem;

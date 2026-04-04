@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
             menuContainer.classList.toggle('open');
             menuTrigger.classList.toggle('is-active');
             body.classList.toggle('lock-scroll');
+            const isOpen = menuContainer.classList.contains('open');
+            menuTrigger.setAttribute('aria-expanded', isOpen);
         });
     }
 });

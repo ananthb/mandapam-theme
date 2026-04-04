@@ -20,7 +20,7 @@
     }
 
     p {
-      color: #333;
+      color: $text-color;
       font-size: 1.1rem;
       line-height: 1.8;
     }
@@ -70,7 +70,7 @@
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #8B6914, $primary, #FFD700, $primary, #8B6914);
+    background: linear-gradient(90deg, $gold-dark, $primary, $gold-light, $primary, $gold-dark);
   }
 
   &:hover {
@@ -83,7 +83,7 @@
 
 // Luxury card style
 .luxury-card {
-  background: #fff;
+  background: $white;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
@@ -97,8 +97,8 @@
   }
 
   .card-header {
-    background: linear-gradient(135deg, #8B6914 0%, $primary 50%, #D4A84B 100%);
-    color: #fff;
+    background: linear-gradient(135deg, $gold-dark 0%, $primary 50%, #D4A84B 100%);
+    color: $white;
     padding: 1.25rem 1.5rem;
     font-weight: 600;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);

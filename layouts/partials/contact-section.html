@@ -70,7 +70,9 @@
                     <div class="contact-form"
                          hx-get="{{ . }}"
                          hx-trigger="load"
-                         hx-swap="innerHTML">
+                         hx-swap="innerHTML"
+                         aria-live="polite"
+                         role="status">
                         <div class="form-loading">Loading form...</div>
                     </div>
                 </div>

@@ -1,11 +1,19 @@
 .masonry {
   /* Masonry container */
-  column-count: 3;
+  column-count: 1;
   column-gap: 1em;
+
+  @include media-breakpoint-up(sm) {
+    column-count: 2;
+  }
+
+  @include media-breakpoint-up(lg) {
+    column-count: 3;
+  }
 
   .item {
     /* Masonry bricks or child elements */
-    background-color: #eee;
+    background-color: $bg-light;
     margin: 0 0 1em;
 
     img {

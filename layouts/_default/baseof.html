@@ -8,14 +8,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {{ block "meta_tags" . }}{{ end }}
 
+  {{ with .Site.Params.google_analytics_id }}
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LE0CKY48V3"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-LE0CKY48V3');
+    gtag('config', '{{ . }}');
 
     // Track contact link clicks
     document.addEventListener('DOMContentLoaded', () => {
@@ -27,14 +28,21 @@
       });
     });
   </script>
+  {{ end }}
 
+  {{ with .Site.Params.gtm_id }}
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-M7895HRP');</script>
+  })(window,document,'script','dataLayer','{{ . }}');</script>
   <!-- End Google Tag Manager -->
+  {{ end }}
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Material+Icons&display=swap">
 
   <link rel="preload" href="{{ .Site.BaseURL }}/fonts/AlaskaExtrabold.woff" as="font" type="font/woff" crossorigin>
   <link rel="preload" href="{{ .Site.BaseURL }}/fonts/AlaskaExtrabold.woff2" as="font" type="font/woff2" crossorigin>
@@ -46,7 +54,7 @@
   {{ $script := resources.Get "js/script.js" }}
 
   {{ if hugo.IsProduction }}
-  {{ $prodStyle := $style | toCSS (dict "targetPath" "css/style.css" "enableSourceMap" false) | postCSS | minify | fingerprint }}
+  {{ $prodStyle := $style | toCSS (dict "targetPath" "css/style.css" "enableSourceMap" false) | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $prodStyle.RelPermalink }}" integrity="{{ $prodStyle.Data.Integrity }}">
   {{ $prodScript := $script | minify | fingerprint }}
   <script type="module" src="{{ $prodScript.RelPermalink }}" integrity="{{ $prodScript.Data.Integrity }}"></script>
@@ -57,8 +65,8 @@
   <script type="module" src="{{ $script.RelPermalink }}"></script>
   {{ end }}
 
-  <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
-  <script>htmx.config.selfRequestsOnly = false;</script>
+  <script defer src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+  <script>document.addEventListener('DOMContentLoaded', () => { htmx.config.selfRequestsOnly = false; });</script>
 
   {{ block "header_css" . }} {{ end }}
   {{ block "header_js" . }} {{ end }}
@@ -66,17 +74,23 @@
 
 <body class='page {{ block "body_classes" . }}{{ end }}'>
 
+<a href="#main" class="sr-only sr-only-focusable">Skip to main content</a>
+
+{{ with .Site.Params.gtm_id }}
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M7895HRP"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ . }}"
+height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+{{ end }}
 
 {{ partial "main-menu-mobile.html" . }}
-<div id="wrapper" class="wrapper">
+<header>
   {{ partial "header.html" . }}
+</header>
+<main id="main" class="wrapper">
   {{ block "main" . }}
   {{ end }}
-</div>
+</main>
 
 {{ partial "footer.html" . }}
 

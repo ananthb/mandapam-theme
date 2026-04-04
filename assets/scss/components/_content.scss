@@ -29,7 +29,7 @@
     transition: all 0.3s ease;
 
     &:hover {
-      color: #FFD700;
+      color: $gold-light;
       text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
     }
   }
@@ -43,7 +43,7 @@
     font-family: $font-family-heading;
     line-height: 1.2;
     font-weight: $font-weight-light;
-    color: #333333;
+    color: $text-color;
     @include media-breakpoint-up(md) {
       line-height: 1.2;
       font-weight: $font-weight-light;
@@ -54,7 +54,7 @@
     font-family: $font-family-heading;
     line-height: 1.4;
     font-weight: 400;
-    color: #333333;
+    color: $text-color;
     text-shadow: 0 0 10px rgba(255, 215, 0, 0.8),
                  0 0 20px rgba(255, 215, 0, 0.6),
                  0 0 40px rgba(255, 215, 0, 0.4),
@@ -66,7 +66,7 @@
 
   // Subheading
   h3 {
-    background: linear-gradient(180deg, #FFD700 0%, $primary 50%, #8B6914 100%);
+    background: linear-gradient(180deg, $gold-light 0%, $primary 50%, $gold-dark 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -86,7 +86,7 @@
     padding: 1.5rem 2rem;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 248, 220, 0.9) 100%);
     border-left: 4px solid transparent;
-    border-image: linear-gradient(180deg, #FFD700, $primary, #8B6914) 1;
+    border-image: linear-gradient(180deg, $gold-light, $primary, $gold-dark) 1;
     box-shadow: 0 4px 20px rgba(175, 134, 34, 0.15),
                 inset 0 1px 0 rgba(255, 215, 0, 0.3);
     position: relative;
@@ -123,19 +123,19 @@
     margin: 2rem 0;
     border-collapse: separate;
     border-spacing: 0;
-    background: #fff;
+    background: $white;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1),
                 0 1px 3px rgba(175, 134, 34, 0.2);
 
     thead {
-      background: linear-gradient(135deg, #8B6914 0%, $primary 50%, #FFD700 100%);
+      background: linear-gradient(135deg, $gold-dark 0%, $primary 50%, $gold-light 100%);
 
       th {
         padding: 1rem 1.25rem;
         text-align: left;
-        color: #fff;
+        color: $white;
         font-weight: 600;
         text-transform: uppercase;
         font-size: 0.85rem;
@@ -174,7 +174,7 @@
 
           &:first-child {
             font-weight: 500;
-            color: #333;
+            color: $text-color;
           }
         }
 

@@ -20,7 +20,7 @@
       font-size: 1.5rem;
 
       a {
-        background: linear-gradient(180deg, #FFD700 0%, $primary 50%, #8B6914 100%);
+        background: linear-gradient(180deg, $gold-light 0%, $primary 50%, $gold-dark 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -30,7 +30,7 @@
     }
 
     p {
-      color: #666;
+      color: $text-muted;
       font-size: 0.9rem;
       width: 90%;
     }

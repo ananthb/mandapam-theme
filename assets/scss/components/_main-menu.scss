@@ -21,9 +21,10 @@
         text-decoration: none;
         color: $primary;
 
-        &:hover {
+        &:hover,
+        &:focus-visible {
           background: $primary;
-          color: #ffffff;
+          color: $white;
           text-decoration: none;
         }
       }
@@ -32,13 +33,13 @@
         > a {
           background: $primary;
           text-decoration: none;
-          color: #ffffff;
+          color: $white;
 
           &:hover {
             text-decoration: none;
             background: $primary;
             transition: all 225ms ease-in 0s;
-            color: #ffffff;
+            color: $white;
           }
         }
       }

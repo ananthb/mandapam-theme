@@ -15,38 +15,38 @@ p {
 }
 
 h1 {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-family: $font-family-heading;
   line-height: 1.2;
   font-weight: $font-weight-light;
-  color: #333333;
+  color: $text-color;
   @include media-breakpoint-up(md) {
-    font-size: 30px;
+    font-size: 1.875rem;
     line-height: 1.2;
     font-weight: $font-weight-light;
   }
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-family: $font-family-heading;
   line-height: 1.4;
   font-weight: 400;
-  color: #333333;
+  color: $text-color;
   @include media-breakpoint-up(md) {
-    font-size: 24px;
+    font-size: 1.5rem;
     line-height: 1.4;
   }
 }
 
 h3 {
   color: $primary;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.4;
   font-weight: $font-weight-thin;
   letter-spacing: 1px;
   @include media-breakpoint-up(md) {
-    font-size: 20px;
+    font-size: 1.25rem;
     line-height: 1.4;
     letter-spacing: 1.8px;
     font-weight: $font-weight-thin;
@@ -54,11 +54,11 @@ h3 {
 }
 
 .display-1 {
-  font-size: 50px;
+  font-size: 3.125rem;
   letter-spacing: 4.5px;
   font-weight: $font-weight-light;
   @include media-breakpoint-down(sm) {
-    font-size: 20px;
+    font-size: 1.25rem;
     letter-spacing: 1.7px;
   }
 }

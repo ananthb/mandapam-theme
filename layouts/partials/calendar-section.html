@@ -16,7 +16,9 @@
                          id="calendar-view"
                          hx-get="{{ $viewUrl }}?no_title=1"
                          hx-trigger="load"
-                         hx-swap="innerHTML">
+                         hx-swap="innerHTML"
+                         aria-live="polite"
+                         role="status">
                         <div class="calendar-loading">
                             <div class="calendar-loading-spinner"></div>
                             <span>Loading calendar...</span>
@@ -35,7 +37,9 @@
                          id="calendar-booking"
                          hx-get="{{ $bookUrl }}?no_title=1"
                          hx-trigger="load"
-                         hx-swap="innerHTML">
+                         hx-swap="innerHTML"
+                         aria-live="polite"
+                         role="status">
                         <div class="calendar-loading">
                             <div class="calendar-loading-spinner"></div>
                             <span>Loading booking form...</span>
