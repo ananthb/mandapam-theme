@@ -1,5 +1,5 @@
-{{- $lbg := (resources.Get .leftBackground).Resize "800x" -}}
-{{- $rbg := (resources.Get .rightBackground).Resize "800x" -}}
+{{- $lbg := (resources.Get .leftBackground).Resize "800x q90" -}}
+{{- $rbg := (resources.Get .rightBackground).Resize "800x q90" -}}
 <div class="hero-image hero-image-split-fullscreen">
   <div class="hero-container d-flex flex-column justify-content-center h-100">
     <div class="hero-text pt-5">

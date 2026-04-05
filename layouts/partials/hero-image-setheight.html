@@ -1,6 +1,6 @@
 {{- $bg := "" -}}
 {{- with .background -}}
-{{- $bg = ((resources.Get .).Resize "1200x").RelPermalink -}}
+{{- $bg = ((resources.Get .).Resize "1200x q90").RelPermalink -}}
 {{- end -}}
 <div id="hero" class="hero-image hero-image-setheight" style="background-image: url('{{ $bg }}')">
   <div class="container d-flex flex-column flex-justify-content-center pt-5">

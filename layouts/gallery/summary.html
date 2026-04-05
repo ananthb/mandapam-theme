@@ -2,7 +2,7 @@
   {{ if .Params.thumbnail }}
   <div class="event-image">
     <a href="{{ .RelPermalink }}">
-      {{- $thumb := (resources.Get .Params.thumbnail).Fill "480x420" -}}
+      {{- $thumb := (resources.Get .Params.thumbnail).Fill "480x420 q85" -}}
       <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" alt="{{ .Title }}" loading="lazy">
     </a>
   </div>

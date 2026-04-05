@@ -2,7 +2,7 @@
 {{ range $resources }}
 
 {{ if .Params.background }}
-{{- $bg := (resources.Get .Params.background).Resize "1200x" -}}
+{{- $bg := (resources.Get .Params.background).Resize "1200x q90" -}}
 <div class="strip bg-cover bg-position-bottom pt-15 pb-15"
 style="background-image: url('{{ $bg.RelPermalink }}');">
 {{ else }}
