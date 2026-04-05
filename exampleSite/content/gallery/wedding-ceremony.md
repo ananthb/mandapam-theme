@@ -1,5 +1,5 @@
 ---
-title: "Ceremonia Nuptialis"
+title: "Sundaram-Meena Wedding"
 thumbnail: "images/gallery-wedding-thumb.jpg"
 date: 2024-01-15
 images:
@@ -8,6 +8,6 @@ images:
   - "images/gallery-wedding-3.jpg"
 ---
 
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+A traditional South Indian wedding held in the Grand Hall in January 2024. The ceremony began at dawn with the muhurtham in the centre mandapam, followed by lunch for 400 guests in the dining hall.
 
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+The family decorated the hall with fresh jasmine and marigold garlands, and the in-house lighting was used for the ceremony and stage.

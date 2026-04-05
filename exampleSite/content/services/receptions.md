@@ -1,8 +1,8 @@
 ---
-title: "Receptio"
+title: "Receptions"
 icon: "celebration"
 link: "/facilities/"
 weight: 2
 ---
 
-Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation.
+Host your reception in style with our air-conditioned banquet hall, professional stage lighting, and a dedicated dining floor that seats 300.

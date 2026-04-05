@@ -1,5 +1,5 @@
 ---
-title: "Receptio Magna"
+title: "Anand-Priya Reception"
 thumbnail: "images/gallery-reception-thumb.jpg"
 date: 2024-02-20
 images:
@@ -7,6 +7,6 @@ images:
   - "images/gallery-reception-2.jpg"
 ---
 
-Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+An evening reception for 350 guests, with the Grand Hall arranged in banquet seating and a raised stage for the couple. The rooftop terrace was used for a pre-dinner cocktail hour.
 
-Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.
+The family brought their own decorator and caterer, and our staff coordinated the setup and teardown.

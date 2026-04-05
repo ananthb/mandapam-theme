@@ -1,9 +1,9 @@
 ---
-title: "Lorem Ipsum Dolor Sit Amet"
+title: "A Venue Built for Your Biggest Days"
 background: "images/hall-background.jpg"
-button: "Explore Venue"
+button: "Explore the Venue"
 buttonLink: "/venue/"
 weight: 1
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Padma Mandapam has been the setting for over a thousand weddings, receptions, and family celebrations. Our halls are designed for the rituals that matter — from the sacred fire to the grand feast — with every detail handled so your family can simply be present.

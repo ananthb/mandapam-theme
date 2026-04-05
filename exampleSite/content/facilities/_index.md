@@ -1,6 +1,6 @@
 ---
-title: "Facilitates"
+title: "Facilities"
 heroBackground: "images/facilities-hero.jpg"
-heroHeading: "Nostrae Facilitates"
-heroSubHeading: "Omnia quae necessaria sunt"
+heroHeading: "Our Facilities"
+heroSubHeading: "Everything under one roof"
 ---

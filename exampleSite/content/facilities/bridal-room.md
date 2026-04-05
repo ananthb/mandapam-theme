@@ -1,21 +1,21 @@
 ---
-title: "Cubiculum Nuptiale"
-heading: "Cubiculum Nuptiale"
+title: "Bridal Suite"
+heading: "Bridal Suite"
 icon: "spa"
 weight: 4
 images:
   - "images/main-hall-2.jpg"
 ---
 
-Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
+A private, air-conditioned room on the first floor for the bride and her family to prepare before the ceremony. The suite includes full-length mirrors, seating for attendants, and an attached restroom.
 
-## Ornamenta
+## Included
 
-- Harum quidem rerum facilis est et expedita
-- Distinctio nam libero tempore cum soluta
-- Nobis est eligendi optio cumque nihil
-- Impedit quo minus id quod maxime placeat
+- Private air-conditioned room with attached bathroom
+- Full-length mirrors and vanity lighting
+- Comfortable seating for six attendants
+- Direct access to the Grand Hall via a private corridor
 
-## Commoditates
+## Extras
 
-Omnis dolor repellendus temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.
+The suite is included with every wedding booking at no additional charge. Early access from 5 AM is available for muhurtham ceremonies.

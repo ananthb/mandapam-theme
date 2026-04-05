@@ -1,6 +1,6 @@
 ---
-title: "Aula Magna"
-heading: "Aula Magna"
+title: "Grand Hall"
+heading: "Grand Hall"
 icon: "meeting_room"
 weight: 1
 images:
@@ -8,18 +8,16 @@ images:
   - "images/main-hall-2.jpg"
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+The Grand Hall is the centrepiece of Padma Mandapam — a column-free space designed for the full arc of a South Indian wedding. The raised mandapam platform at the centre of the hall accommodates all traditional ceremonies, with clear sightlines for 500 seated guests.
 
-## Proprietates
+## Features
 
-- Lorem ipsum dolor sit amet consectetur
-- Adipiscing elit sed do eiusmod tempor
-- Incididunt ut labore et dolore magna
-- Aliqua ut enim ad minim veniam
-- Quis nostrud exercitation ullamco
+- 5,000 sq ft column-free hall with 18-foot ceilings
+- Centrally air-conditioned with individual zone controls
+- Built-in mandapam platform with traditional design
+- Professional stage lighting and PA system
+- Wheelchair-accessible with elevator to all floors
 
-## Capacitas
+## Capacity
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+The hall comfortably seats 500 for a wedding ceremony or can be configured for 300 with a stage and dance floor for receptions. For standing events and exhibitions, the space accommodates up to 700.

@@ -1,46 +1,44 @@
 ---
-title: "Locus Noster"
+title: "The Venue"
 heroBackground: "images/venue-hero.jpg"
-heroHeading: "Lorem Mandapam"
-heroSubHeading: "Locus traditionis et elegantiae"
+heroHeading: "Padma Mandapam"
+heroSubHeading: "Tradition meets comfort"
 ---
 
-## De Loco Nostro
+## About the Venue
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Padma Mandapam sits on Temple Road in the heart of Mylapore, minutes from Kapaleeshwarar Temple. Built in 2005, the venue was designed from the ground up for South Indian weddings and large family gatherings — with wide corridors, natural ventilation, and ritual spaces that work the way your priest expects them to.
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Over the years we have hosted everything from three-day Brahmin weddings to corporate conferences, music concerts, and school annual days. The building has been updated with modern air conditioning, elevator access, and fire safety systems while keeping the open, welcoming layout families need.
 
-### Cur Nos Eligas?
+### Why Padma Mandapam?
 
-- **Locus Optimus**: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-- **Spatia Ampla**: Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-- **Commoditates Modernae**: Neque porro quisquam est qui dolorem ipsum quia dolor sit amet
-- **Ministri Periti**: Ut enim ad minima veniam quis nostrum exercitationem ullam
-- **Optiones Flexibiles**: Quis autem vel eum iure reprehenderit qui in ea voluptate
+- **Central location**: Walking distance from Mylapore station and major temples
+- **Spacious halls**: Grand hall seats 500, dining hall seats 300, with no cramped corners
+- **Modern amenities**: Fully air-conditioned, elevator access, backup power
+- **Experienced staff**: A team that has managed over a thousand events
+- **Flexible options**: Bring your own caterer, decorator, and photographer, or use ours
 
-### Capacitas
+### Capacity
 
-| Area | Sedentes | Stantes |
-|------|----------|---------|
-| Aula Magna | 500 | 700 |
-| Triclinium | 300 | - |
-| Hortus | 200 | 400 |
+| Space | Seated | Standing |
+|-------|--------|----------|
+| Grand Hall | 500 | 700 |
+| Dining Hall | 300 | — |
+| Terrace | 150 | 250 |
 
-### Historia
+### Our Story
 
-At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.
+Padma Mandapam was founded by the Sundaram family, who saw that Mylapore needed a well-maintained mandapam that could handle the full scale of a South Indian wedding — muhurtham, reception, and dining — all under one roof.
 
-Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
+The name *Padma* (lotus) reflects the idea that a celebration should unfold naturally, with grace, in a space that feels right. That principle has guided every decision since — from the height of the ceilings to the width of the dining tables.
 
-Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+## What Families Say
 
-## Testimoniae
+> "We held our daughter's wedding here and everything went smoothly. The hall was spacious, the staff were helpful, and the kitchen was well-equipped for our caterer."
+> — *Lakshmi R., Chennai*
 
-> "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-> — *Marcus Aurelius*
+> "We have booked Padma Mandapam three times now for family functions. It is clean, well-maintained, and the location is very convenient."
+> — *Ramesh K., Mylapore*
 
-> "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-> — *Cicero*
-
-Contacta nos hodie ut visitationem ordines et necessitates tuas discutiamus.
+[Contact us](#contact) to schedule a visit and discuss your requirements.

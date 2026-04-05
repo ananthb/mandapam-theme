@@ -1,21 +1,21 @@
 ---
-title: "Triclinium"
-heading: "Triclinium"
+title: "Dining Hall"
+heading: "Dining Hall"
 icon: "restaurant"
 weight: 2
 images:
   - "images/dining-hall-1.jpg"
 ---
 
-Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+Our ground-floor dining hall seats 300 guests and connects directly to the professional kitchen. The space is designed for both seated dining and traditional banana-leaf service, with wide aisles for serving staff.
 
-## Commoditates
+## Amenities
 
-- Neque porro quisquam est qui dolorem
-- Ipsum quia dolor sit amet consectetur
-- Adipisci velit sed quia non numquam
-- Eius modi tempora incidunt ut labore
+- Seating for 300 guests in air-conditioned comfort
+- Direct access to the commercial kitchen
+- Separate wash areas for guests
+- Wide serving aisles for efficient banana-leaf service
 
-## Culinae
+## Kitchen
 
-Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.
+The in-house commercial kitchen is fully equipped with gas ranges, industrial coolers, and ample prep space. Your caterer can set up and operate independently, or you can work with one of our partnered catering teams.

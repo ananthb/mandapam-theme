@@ -1,7 +1,7 @@
 ---
-title: "Lorem Mandapam"
+title: "Padma Mandapam"
 heroLeftBackground: "images/wedding-left.jpg"
 heroRightBackground: "images/wedding-right.jpg"
-heroHeading: "Lorem Mandapam"
-heroSubheading: "Consectetur adipiscing elit"
+heroHeading: "Padma Mandapam"
+heroSubheading: "Where celebrations come home"
 ---

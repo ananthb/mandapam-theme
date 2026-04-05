@@ -1,9 +1,9 @@
 ---
-title: "Excepteur Sint Occaecat"
+title: "Every Event, Every Season"
 background: "images/event-background.jpg"
-button: "Contact Us"
+button: "Get in Touch"
 buttonLink: "/#contact"
 weight: 2
 ---
 
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+From intimate naming ceremonies to grand wedding receptions seating 500, our spaces adapt to the occasion. Air-conditioned halls, professional kitchens, and an experienced team make every event feel effortless.

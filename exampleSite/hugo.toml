@@ -1,6 +1,6 @@
 baseURL = "https://example.com/"
 languageCode = "en-us"
-title = "Lorem Mandapam"
+title = "Padma Mandapam"
 theme = ["github.com/ananthb/mandapam-theme"]
 
 enableGitInfo = true
@@ -12,36 +12,36 @@ enableGitInfo = true
 
 [params]
   logo = "logos/logo.png"
-  services_heading = "Lorem Ipsum Offerings"
+  services_heading = "What We Offer"
   google_analytics_id = ""
   gtm_id = ""
   github_repository = "ananthb/mandapam-theme"
   [params.homepage_meta_tags]
-    meta_description = "Lorem ipsum dolor sit amet consectetur adipiscing elit"
-    meta_og_title = "Lorem Mandapam"
+    meta_description = "Padma Mandapam — a grand wedding and event venue in the heart of the city, with elegant halls, rooftop dining, and full-service event management."
+    meta_og_title = "Padma Mandapam"
     meta_og_type = "website"
     meta_og_url = "https://example.com"
     meta_og_image = "https://example.com/images/venue.jpg"
-    meta_og_description = "Lorem ipsum dolor sit amet consectetur adipiscing elit"
+    meta_og_description = "Padma Mandapam — a grand wedding and event venue in the heart of the city."
     meta_twitter_card = "summary_large_image"
-    meta_twitter_site = "@lorem"
-    meta_twitter_creator = "@lorem"
+    meta_twitter_site = "@padmamandapam"
+    meta_twitter_creator = "@padmamandapam"
 
 [menus]
   [[menus.main]]
-    name = "Domus"
+    name = "Home"
     url = "/"
     weight = 10
   [[menus.main]]
-    name = "Locus"
+    name = "Venue"
     url = "/venue/"
     weight = 20
   [[menus.main]]
-    name = "Facilitates"
+    name = "Facilities"
     url = "/facilities/"
     weight = 30
   [[menus.main]]
-    name = "Imago"
+    name = "Gallery"
     url = "/gallery/"
     weight = 40
   [[menus.main]]
