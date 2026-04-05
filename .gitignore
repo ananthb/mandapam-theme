@@ -4,3 +4,6 @@ resources/_gen/
 .hugo_build.lock
 .direnv/
 result
+
+# cachix/git-hooks.nix
+.pre-commit-config.yaml
