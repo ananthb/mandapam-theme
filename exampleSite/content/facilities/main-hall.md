@@ -8,7 +8,7 @@ images:
   - "images/main-hall-2.jpg"
 ---
 
-The Grand Hall is the centrepiece of Padma Mandapam — a column-free space designed for the full arc of a South Indian wedding. The raised mandapam platform at the centre of the hall accommodates all traditional ceremonies, with clear sightlines for 500 seated guests.
+The Grand Hall is the centrepiece of Vasanta Mandapam — a column-free space designed for the full arc of a South Indian wedding. The raised mandapam platform at the centre of the hall accommodates all traditional ceremonies, with clear sightlines for 500 seated guests.
 
 ## Features
 

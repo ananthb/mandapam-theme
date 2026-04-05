@@ -1,7 +1,7 @@
 ---
-title: "Padma Mandapam"
+title: "Vasanta Mandapam"
 heroLeftBackground: "images/wedding-left.jpg"
 heroRightBackground: "images/wedding-right.jpg"
-heroHeading: "Padma Mandapam"
+heroHeading: "Vasanta Mandapam"
 heroSubheading: "Where celebrations come home"
 ---

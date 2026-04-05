@@ -1,6 +1,6 @@
 baseURL = "https://example.com/"
 languageCode = "en-us"
-title = "Padma Mandapam"
+title = "Vasanta Mandapam"
 theme = ["github.com/ananthb/mandapam-theme"]
 
 enableGitInfo = true
@@ -17,15 +17,15 @@ enableGitInfo = true
   gtm_id = ""
   github_repository = "ananthb/mandapam-theme"
   [params.homepage_meta_tags]
-    meta_description = "Padma Mandapam — a grand wedding and event venue in the heart of the city, with elegant halls, rooftop dining, and full-service event management."
-    meta_og_title = "Padma Mandapam"
+    meta_description = "Vasanta Mandapam — a grand wedding and event venue in the heart of the city, with elegant halls, rooftop dining, and full-service event management."
+    meta_og_title = "Vasanta Mandapam"
     meta_og_type = "website"
     meta_og_url = "https://example.com"
     meta_og_image = "https://example.com/images/venue.jpg"
-    meta_og_description = "Padma Mandapam — a grand wedding and event venue in the heart of the city."
+    meta_og_description = "Vasanta Mandapam — a grand wedding and event venue in the heart of the city."
     meta_twitter_card = "summary_large_image"
-    meta_twitter_site = "@padmamandapam"
-    meta_twitter_creator = "@padmamandapam"
+    meta_twitter_site = "@vasantamandapam"
+    meta_twitter_creator = "@vasantamandapam"
 
 [menus]
   [[menus.main]]

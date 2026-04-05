@@ -7,7 +7,7 @@ images:
   - "images/parking.jpg"
 ---
 
-Padma Mandapam offers on-site parking for up to 50 cars and 100 two-wheelers, with valet service available for weddings and large events.
+Vasanta Mandapam offers on-site parking for up to 50 cars and 100 two-wheelers, with valet service available for weddings and large events.
 
 ## Details
 
