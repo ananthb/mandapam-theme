@@ -1,15 +1,27 @@
 {{ define "title" }}{{ .Site.Title }}{{ end}}
 
 {{ define "meta_tags" }}
-<meta name="description" content="{{ .Site.Params.homepage_meta_tags.meta_description }}"/>
-<meta property="og:title" content="{{ .Site.Params.homepage_meta_tags.meta_og_title }}"/>
-<meta property="og:type" content="{{ .Site.Params.homepage_meta_tags.meta_og_type }}"/>
-<meta property="og:url" content="{{ .Site.Params.homepage_meta_tags.meta_og_url }}"/>
-<meta property="og:image" content="{{ .Site.Params.homepage_meta_tags.meta_og_image }}"/>
-<meta property="og:description" content="{{ .Site.Params.homepage_meta_tags.meta_og_description }}"/>
-<meta name="twitter:card" content="{{ .Site.Params.homepage_meta_tags.meta_twitter_card }}"/>
-<meta name="twitter:site" content="{{ .Site.Params.homepage_meta_tags.meta_twitter_site }}"/>
-<meta name="twitter:creator" content="{{ .Site.Params.homepage_meta_tags.meta_twitter_creator }}"/>
+{{- $p := .Site.Params.homepage_meta_tags -}}
+<meta name="description" content="{{ $p.meta_description }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<meta property="og:title" content="{{ $p.meta_og_title | default .Site.Title }}">
+<meta property="og:description" content="{{ $p.meta_og_description | default $p.meta_description }}">
+<meta property="og:type" content="{{ $p.meta_og_type | default "website" }}">
+<meta property="og:url" content="{{ $p.meta_og_url | default .Permalink }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+{{- with $p.meta_og_image }}
+<meta property="og:image" content="{{ . }}">
+<meta name="twitter:image" content="{{ . }}">
+{{- end }}
+<meta name="twitter:card" content="{{ $p.meta_twitter_card | default "summary_large_image" }}">
+{{- with $p.meta_twitter_site }}
+<meta name="twitter:site" content="{{ . }}">
+{{- end }}
+{{- with $p.meta_twitter_creator }}
+<meta name="twitter:creator" content="{{ . }}">
+{{- end }}
+<meta name="twitter:title" content="{{ $p.meta_og_title | default .Site.Title }}">
+<meta name="twitter:description" content="{{ $p.meta_og_description | default $p.meta_description }}">
 {{ end }}
 
 {{ define "main" }}

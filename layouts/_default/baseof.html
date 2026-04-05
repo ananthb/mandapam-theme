@@ -6,7 +6,38 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>{{ block "title" . }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  {{ block "meta_tags" . }}{{ end }}
+  {{ block "meta_tags" . }}
+  {{- $title := .Title -}}
+  {{- $description := .Description | default .Summary | default .Site.Params.homepage_meta_tags.meta_description | plainify | truncate 160 -}}
+  {{- $url := .Permalink -}}
+  {{- $image := "" -}}
+  {{- with .Params.heroBackground -}}
+    {{- $image = (resources.Get .).Permalink -}}
+  {{- else -}}
+    {{- with .Params.thumbnail -}}
+      {{- $image = (resources.Get .).Permalink -}}
+    {{- else -}}
+      {{- $image = $.Site.Params.homepage_meta_tags.meta_og_image -}}
+    {{- end -}}
+  {{- end -}}
+  <meta name="description" content="{{ $description }}">
+  <link rel="canonical" href="{{ $url }}">
+  <meta property="og:title" content="{{ $title }}">
+  <meta property="og:description" content="{{ $description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ $url }}">
+  <meta property="og:site_name" content="{{ .Site.Title }}">
+  {{- with $image }}
+  <meta property="og:image" content="{{ . }}">
+  <meta name="twitter:image" content="{{ . }}">
+  {{- end }}
+  <meta name="twitter:card" content="{{ .Site.Params.homepage_meta_tags.meta_twitter_card | default "summary_large_image" }}">
+  {{- with .Site.Params.homepage_meta_tags.meta_twitter_site }}
+  <meta name="twitter:site" content="{{ . }}">
+  {{- end }}
+  <meta name="twitter:title" content="{{ $title }}">
+  <meta name="twitter:description" content="{{ $description }}">
+  {{ end }}
 
   {{ with .Site.Params.google_analytics_id }}
   <!-- Google tag (gtag.js) -->
