@@ -1,7 +1,7 @@
----
-title: "{{ replace .Name "-" " " | title }}"
-thumbnail: "images/front.jpg"
-date: {{ .Date }}
-draft: false
-images: ["images/front.jpg"]
----
++++
+title = '{{ replace .Name "-" " " | title }}'
+date = {{ .Date }}
+draft = false
+thumbnail = ''
+images = []
++++

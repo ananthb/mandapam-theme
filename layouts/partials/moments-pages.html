@@ -1,0 +1,5 @@
+{{- /* Every dated photo post on the site: the moments, gallery and events
+   sections, newest first. Returns a page collection. */ -}}
+{{- $sections := .Site.Params.moments_sections | default (slice "moments" "gallery" "events") -}}
+{{- $pages := where .Site.RegularPages "Section" "in" $sections -}}
+{{- return $pages.ByDate.Reverse -}}

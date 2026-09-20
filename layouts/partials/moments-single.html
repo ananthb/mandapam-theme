@@ -1,0 +1,25 @@
+{{- $p := . -}}
+{{- $photos := $p.Params.photos | default $p.Params.images -}}
+{{- $n := 0 -}}{{- with $photos }}{{ $n = len . }}{{ end -}}
+{{- $upcoming := gt $p.Date.Unix now.Unix -}}
+<div class="entry-head">
+  <div class="container">
+    <span class="kicker">{{ $p.Params.kicker | default (cond $upcoming ($p.Site.Params.upcoming_kicker | default "Coming up") ($p.FirstSection.Title)) }}</span>
+    <h1>{{ $p.Title }}</h1>
+    <div class="entry-head__meta">
+      {{- if not $p.Date.IsZero }}<span>{{ $p.Date.Format "Monday, 2 January 2006" }}</span>{{ end }}
+      {{- with $p.Params.time }}<span>{{ . }}</span>{{ end }}
+      {{- with $p.Params.venue }}<span>{{ . }}</span>{{ end }}
+      {{- with $p.Params.artists }}<span>{{ delimit . ", " }}</span>{{ end }}
+      {{- with $p.Params.entry }}<span>{{ . }}</span>{{ end }}
+      {{- if gt $n 0 }}<span>{{ $n }} photo{{ if ne $n 1 }}s{{ end }}</span>{{ end }}
+      {{- with $p.Params.booking }}<a class="btn btn--accent btn--sm" href="{{ . }}" target="_blank" rel="noopener">{{ $p.Params.booking_label | default "Book" }} {{ partial "icon.html" "arrow" }}</a>{{ end }}
+    </div>
+  </div>
+</div>
+{{- with $p.Content }}
+<div class="container prose" style="padding-bottom:1.5rem">{{ . }}</div>
+{{- end }}
+<div class="container" style="padding-bottom:3rem">
+  {{ partial "photos.html" (dict "page" $p "list" $photos) }}
+</div>

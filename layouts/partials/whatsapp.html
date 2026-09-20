@@ -1,0 +1,11 @@
+{{- /* Returns the wa.me link for the first WhatsApp number, with the site's
+   pre-filled message, or "" when there is no number. */ -}}
+{{- $link := "" -}}
+{{- with .Site.Data.contact -}}
+  {{- with .whatsapp -}}
+    {{- $num := replaceRE `[^0-9]` "" (index . 0) -}}
+    {{- $msg := $.Site.Params.whatsapp_message | default (printf "Hi, I'd like to enquire about booking %s." $.Site.Title) -}}
+    {{- $link = printf "https://wa.me/%s?text=%s" $num (urlquery $msg) -}}
+  {{- end -}}
+{{- end -}}
+{{- return $link -}}

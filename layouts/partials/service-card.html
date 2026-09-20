@@ -1,0 +1,17 @@
+{{- $s := .page -}}
+{{- $owner := .owner | default $s -}}
+{{- $img := "" -}}
+{{- with $s.Params.image -}}{{- $img = partial "img.html" (dict "page" $owner "src" .) -}}{{- end -}}
+{{- $link := $s.Params.link | default "#contact" -}}
+{{- $external := hasPrefix $link "http" -}}
+<article class="card">
+  {{- with $img }}
+  <div class="card__media">{{ partial "picture.html" (dict "img" . "alt" $s.Title "sizes" "(min-width: 900px) 33vw, 100vw" "widths" (slice 480 800 1200)) }}</div>
+  {{- end }}
+  <div class="card__body">
+    {{- if not $img }}<div class="card__icon">{{ partial "icon.html" $s.Params.icon }}</div>{{ end }}
+    {{- with $s.Params.kicker }}<span class="card__meta">{{ . }}</span>{{ end }}
+    <h3><a href="{{ cond $external $link ($link | relURL) }}"{{ if $external }} target="_blank" rel="noopener"{{ end }}>{{ $s.Title }}</a></h3>
+    <div class="card__text">{{ $s.Content }}</div>
+  </div>
+</article>

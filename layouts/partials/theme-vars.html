@@ -1,0 +1,13 @@
+{{- /* Site colours. Override any of these under [params.theme]. Defaults are the
+   maroon-and-gold of a traditional mandapam. */ -}}
+{{- $t := .Site.Params.theme | default dict -}}
+<style>
+:root {
+  --c-primary: {{ $t.primary | default "#760919" }};
+  --c-primary-deep: {{ $t.primary_deep | default "#3b0810" }};
+  --c-accent: {{ $t.accent | default "#c9a227" }};
+  --c-ivory: {{ $t.ivory | default "#faf6ea" }};
+  --c-ink: {{ $t.ink | default "#231717" }};
+  --c-positive: {{ $t.positive | default "#25714b" }};
+}
+</style>

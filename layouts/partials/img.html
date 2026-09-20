@@ -1,0 +1,13 @@
+{{- /* Resolve an image path to a resource. Page bundle resources first, then the
+   site's assets/ directory. Leading slashes are tolerated. Returns nil if
+   nothing matches, so callers can `with` it.
+   Usage: partial "img.html" (dict "page" $page "src" "images/x.jpg") */ -}}
+{{- $src := strings.TrimPrefix "/" (.src | default "") -}}
+{{- $r := "" -}}
+{{- if $src -}}
+  {{- with .page -}}
+    {{- with .Resources -}}{{- $r = .GetMatch $src -}}{{- end -}}
+  {{- end -}}
+  {{- if not $r -}}{{- $r = resources.Get $src -}}{{- end -}}
+{{- end -}}
+{{- return $r -}}

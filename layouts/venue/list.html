@@ -1,0 +1,12 @@
+{{ define "main" }}
+{{ partial "page-head.html" (dict "page" . "kicker" .Params.kicker) }}
+<div class="section section--tight">
+  <div class="prose">{{ .Content }}</div>
+</div>
+{{- with .RegularPages }}
+<div class="section section--tight"><div class="container grid grid--3">
+  {{- range . }}{{ partial "page-card.html" . }}{{ end }}
+</div></div>
+{{- end }}
+{{ partial "contact-section.html" . }}
+{{ end }}

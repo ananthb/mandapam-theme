@@ -1,0 +1,32 @@
+{{- /* Hero band.
+   dict: page, heading, subheading, kicker (small line above), eyebrow (Tamil
+   line), images (slice of resources, 1 or 2), size ("full" | "band"),
+   cta (bool: show WhatsApp + secondary button), level ("h1" | "h2") */ -}}
+{{- $images := .images | default slice -}}
+{{- $level := .level | default "h1" -}}
+{{- $size := .size | default "band" -}}
+<section class="hero{{ if eq $size "band" }} hero--band{{ end }}">
+  {{- if $images }}
+  <div class="hero__media{{ if gt (len $images) 1 }} hero__media--split{{ end }}">
+    {{- range $i, $img := $images }}
+    {{ partial "picture.html" (dict "img" $img "alt" "" "sizes" (cond (gt (len $images) 1) "(min-width: 720px) 50vw, 100vw" "100vw") "widths" (slice 720 1200 1800) "loading" (cond (eq $i 0) "eager" "lazy") "quality" 78) }}
+    {{- end }}
+  </div>
+  {{- end }}
+  <div class="container">
+    <div class="hero__text">
+      {{- with .eyebrow }}<p class="hero__eyebrow">{{ . | markdownify }}</p>{{ end }}
+      {{- with .kicker }}<span class="kicker kicker--light">{{ . }}</span>{{ end }}
+      {{- if eq $level "h1" }}<h1>{{ .heading | markdownify }}</h1>{{ else }}<h2 class="hero__title">{{ .heading | markdownify }}</h2>{{ end }}
+      {{- with .subheading }}<div class="hero__sub">{{ . | markdownify }}</div>{{ end }}
+      {{- if .cta }}
+      <div class="hero__cta">
+        {{- with partial "whatsapp.html" .page }}
+        <a class="btn btn--accent" href="{{ . }}" target="_blank" rel="noopener">{{ partial "icon.html" "whatsapp" }} {{ $.page.Site.Params.hero_cta | default "Check a date on WhatsApp" }}</a>
+        {{- end }}
+        <a class="btn btn--ghost" href="{{ .page.Site.Params.hero_button_link | default "#venues" }}">{{ .page.Site.Params.hero_button | default "See the venues" }} {{ partial "icon.html" "arrow" }}</a>
+      </div>
+      {{- end }}
+    </div>
+  </div>
+</section>

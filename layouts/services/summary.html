@@ -1,13 +1,1 @@
-<div class="service service-summary">
-  {{ if .Params.icon }}
-  <div class="service-image">
-    <i class="material-icons" aria-hidden="true">{{ .Params.icon }}</i>
-  </div>
-  {{ end }}
-  <div class="service-content">
-    <h2 class="service-title">
-      <a href="{{ .Params.link | relURL }}">{{ .Title }}</a>
-    </h2>
-    {{ .Content }}
-  </div>
-</div>
+{{ partial "service-card.html" (dict "page" .) }}

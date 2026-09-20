@@ -1,0 +1,34 @@
+{{- /* One content strip: a page resource with title, optional background,
+   content, optional button. dict: page (the strip), owner (the page whose
+   resources hold the image), index (int, alternates sides), level ("h2"|"h1") */ -}}
+{{- $s := .page -}}
+{{- $owner := .owner | default $s -}}
+{{- $level := .level | default "h2" -}}
+{{- $img := "" -}}
+{{- with $s.Params.background -}}{{- $img = partial "img.html" (dict "page" $owner "src" .) -}}{{- end -}}
+{{- $hasText := gt (len (plainify $s.Content)) 0 -}}
+{{- if and $img (not $hasText) }}
+<section class="strip strip--band">
+  {{ partial "picture.html" (dict "img" $img "alt" $s.Title "sizes" "100vw" "widths" (slice 720 1200 1800) "quality" 78) }}
+  <div class="container">
+    {{ partial "heading.html" (dict "level" $level "text" $s.Title) }}
+  </div>
+</section>
+{{- else }}
+<section class="strip{{ if not $img }} strip--plain{{ else if eq (mod .index 2) 1 }} strip--flip{{ end }}">
+  <div class="container">
+    {{- with $img }}
+    <div class="strip__media">
+      {{ partial "picture.html" (dict "img" . "alt" $s.Title "sizes" "(min-width: 800px) 50vw, 100vw" "widths" (slice 600 900 1400)) }}
+    </div>
+    {{- end }}
+    <div class="strip__body prose">
+      {{ partial "heading.html" (dict "level" $level "text" $s.Title) }}
+      {{ $s.Content }}
+      {{- with $s.Params.button }}
+      <a class="btn btn--primary" href="{{ $s.Params.buttonLink | relURL }}">{{ . }} {{ partial "icon.html" "arrow" }}</a>
+      {{- end }}
+    </div>
+  </div>
+</section>
+{{- end }}

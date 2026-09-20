@@ -1,0 +1,21 @@
+{{- /* Top of an inner page: a photo band when the page has a hero image,
+   otherwise a plain heading block. dict: page, kicker, heading, subheading,
+   image (resource or nil, optional; defaults to page.Params.heroBackground) */ -}}
+{{- $p := .page -}}
+{{- $img := .image -}}
+{{- if and (not $img) $p.Params.heroBackground -}}
+  {{- $img = partial "img.html" (dict "page" $p "src" $p.Params.heroBackground) -}}
+{{- end -}}
+{{- $heading := .heading | default $p.Params.heroHeading | default $p.Title -}}
+{{- $sub := .subheading | default $p.Params.heroSubHeading | default $p.Params.heroSubheading -}}
+{{- if $img }}
+{{ partial "hero.html" (dict "page" $p "heading" $heading "subheading" $sub "kicker" .kicker "images" (slice $img) "size" "band" "level" "h1") }}
+{{- else }}
+<div class="entry-head">
+  <div class="container">
+    {{- with .kicker }}<span class="kicker">{{ . }}</span>{{ end }}
+    <h1>{{ $heading | markdownify }}</h1>
+    {{- with $sub }}<p class="hero__sub" style="color:var(--c-muted)">{{ . | markdownify }}</p>{{ end }}
+  </div>
+</div>
+{{- end }}

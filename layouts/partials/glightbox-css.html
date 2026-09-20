@@ -1,7 +1,3 @@
-{{ $glboxCss := resources.Get "css/glightbox.css" }}
-{{ if hugo.IsProduction }}
-{{ $glboxCss := $glboxCss | minify | fingerprint }}
-<link rel="stylesheet" href="{{ $glboxCss.RelPermalink }}" integrity="{{ $glboxCss.Data.Integrity }}">
-{{ else }}
-<link rel="stylesheet" href="{{ $glboxCss.RelPermalink }}">
-{{ end }}
+{{ $css := resources.Get "css/glightbox.css" }}
+{{ if hugo.IsProduction }}{{ $css = $css | minify | fingerprint }}{{ end }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}"{{ if hugo.IsProduction }} integrity="{{ $css.Data.Integrity }}"{{ end }}>

@@ -1,0 +1,15 @@
+{{- /* Masonry of lightbox photos. dict: page, list (paths), title */ -}}
+{{- $p := .page -}}
+{{- $title := .title | default $p.Title -}}
+{{- with .list }}
+<div class="photos">
+  {{- range $i, $src := . }}
+  {{- with partial "img.html" (dict "page" $p "src" $src) }}
+  {{- $full := .Resize "1600x webp q85" }}
+  <a href="{{ $full.RelPermalink }}" class="glightbox" data-gallery="{{ $title }}" data-width="{{ $full.Width }}" data-height="{{ $full.Height }}">
+    {{ partial "picture.html" (dict "img" . "alt" (printf "%s, photo %d" $title (add $i 1)) "sizes" "(min-width: 900px) 33vw, (min-width: 560px) 50vw, 100vw" "widths" (slice 480 800)) }}
+  </a>
+  {{- end }}
+  {{- end }}
+</div>
+{{- end }}

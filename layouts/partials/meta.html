@@ -1,0 +1,45 @@
+{{- $p := .Site.Params.homepage_meta_tags | default dict -}}
+{{- $isHome := .IsHome -}}
+{{- $title := cond $isHome ($p.meta_og_title | default .Site.Title) .Title -}}
+{{- $description := "" -}}
+{{- if $isHome -}}
+  {{- $description = $p.meta_description | default .Site.Params.description -}}
+{{- else -}}
+  {{- $description = .Description | default .Summary | default $p.meta_description | default .Site.Params.description -}}
+{{- end -}}
+{{- $description = $description | plainify | htmlUnescape | replaceRE `\s+` " " | strings.TrimSpace | truncate 160 -}}
+{{- /* Image: the page's own cover, then the site's og image, then the logo. */ -}}
+{{- $image := "" -}}
+{{- if $isHome -}}{{- with $p.meta_og_image -}}{{- $image = . -}}{{- end -}}{{- end -}}
+{{- if not $image -}}
+  {{- with partial "cover.html" . -}}{{- $image = (.Fill "1200x630 q85").Permalink -}}{{- end -}}
+{{- end -}}
+{{- if not $image -}}
+  {{- with $p.meta_og_image -}}{{- $image = . -}}{{- end -}}
+{{- end -}}
+{{- if not $image -}}
+  {{- with resources.Get (.Site.Params.logo | default "logos/logo.png") -}}
+    {{- $image = (.Fit "1200x630 png").Permalink -}}
+  {{- end -}}
+{{- end -}}
+<meta name="description" content="{{ $description }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:type" content="{{ cond $isHome ($p.meta_og_type | default "website") "article" }}">
+<meta property="og:url" content="{{ cond $isHome ($p.meta_og_url | default .Permalink) .Permalink }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:locale" content="{{ replace (.Site.Language.Lang | default "en") "-" "_" }}">
+{{- with $image }}
+<meta property="og:image" content="{{ . }}">
+<meta name="twitter:image" content="{{ . }}">
+{{- end }}
+<meta name="twitter:card" content="{{ $p.meta_twitter_card | default "summary_large_image" }}">
+{{- with $p.meta_twitter_site }}
+<meta name="twitter:site" content="{{ . }}">
+{{- end }}
+{{- with $p.meta_twitter_creator }}
+<meta name="twitter:creator" content="{{ . }}">
+{{- end }}
+<meta name="twitter:title" content="{{ $title }}">
+<meta name="twitter:description" content="{{ $description }}">

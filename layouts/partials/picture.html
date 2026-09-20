@@ -1,0 +1,21 @@
+{{- /* Responsive <img> with WebP srcset.
+   Usage: partial "picture.html" (dict "img" $resource "alt" "…" "sizes" "(min-width: 900px) 33vw, 100vw" "widths" (slice 480 960 1600) "loading" "lazy" "class" "…") */ -}}
+{{- $img := .img -}}
+{{- $widths := .widths | default (slice 480 960 1600) -}}
+{{- $sizes := .sizes | default "100vw" -}}
+{{- $loading := .loading | default "lazy" -}}
+{{- $q := .quality | default 82 -}}
+{{- $set := slice -}}
+{{- $fallback := "" -}}
+{{- range $w := $widths -}}
+  {{- if le $w $img.Width -}}
+    {{- $v := $img.Resize (printf "%dx webp q%d" $w $q) -}}
+    {{- $set = $set | append (printf "%s %dw" $v.RelPermalink $v.Width) -}}
+    {{- $fallback = $v -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $fallback -}}
+  {{- $fallback = $img.Resize (printf "%dx webp q%d" $img.Width $q) -}}
+  {{- $set = $set | append (printf "%s %dw" $fallback.RelPermalink $fallback.Width) -}}
+{{- end -}}
+<img src="{{ $fallback.RelPermalink }}" srcset="{{ delimit $set ", " }}" sizes="{{ $sizes }}" width="{{ $fallback.Width }}" height="{{ $fallback.Height }}" alt="{{ .alt }}" loading="{{ $loading }}" decoding="async"{{ with .class }} class="{{ . }}"{{ end }}>

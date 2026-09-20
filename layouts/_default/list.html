@@ -1,20 +1,11 @@
 {{ define "main" }}
-
-<div class="container pt-10 pb-6">
-  <div class="row">
-    <div class="col-12">
-      <h1 class="title-1 black">{{ .Title }}</h1>
-      {{ .Content }}
-    </div>
-  </div>
-</div>
-
-<div class="container pb-6">
-  <div class="row">
-    {{ range.Pages }}
-    <div class="col-12 col-md-6 mb-2 ">{{.Content}}</div>
-    {{ end }}
-  </div>
-</div>
-
+{{ partial "page-head.html" (dict "page" . "kicker" .Params.kicker) }}
+{{- with .Content }}
+<div class="section section--tight"><div class="prose">{{ . }}</div></div>
+{{- end }}
+{{- with .RegularPages }}
+<div class="section section--tight"><div class="container grid grid--3">
+  {{- range . }}{{ partial "page-card.html" . }}{{ end }}
+</div></div>
+{{- end }}
 {{ end }}
