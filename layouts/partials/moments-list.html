@@ -22,7 +22,7 @@
     {{- $years := slice -}}
     {{- range $past }}{{ $years = $years | append (.Date.Format "2006") }}{{ end -}}
     {{- $years = uniq $years -}}
-    {{- $byYear := and (gt (len $years) 1) (not (in $years "0001")) -}}
+    {{- $byYear := and (gt (len $years) 1) (gt (len $past) 6) (not (in $years "0001")) -}}
     {{- if $byYear }}
       {{- range $years }}
       {{- $y := . }}
