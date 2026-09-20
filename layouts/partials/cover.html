@@ -1,0 +1,32 @@
+{{- /* The one picture that stands for a page: cover, thumbnail, hero background,
+   first photo, or the first strip's background. Returns a resource or nil. */ -}}
+{{- $page := . -}}
+{{- $r := "" -}}
+{{- range $key := slice "cover" "thumbnail" "heroBackground" "heroLeftBackground" "background" -}}
+  {{- if not $r -}}
+    {{- with index $page.Params $key -}}
+      {{- $r = partial "img.html" (dict "page" $page "src" .) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $r -}}
+  {{- $list := $page.Params.photos | default $page.Params.images -}}
+  {{- with $list -}}
+    {{- $r = partial "img.html" (dict "page" $page "src" (index . 0)) -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $r -}}
+  {{- with $page.Resources -}}
+    {{- range first 1 (.ByType "image") -}}{{- $r = . -}}{{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $r -}}
+  {{- with $page.Resources -}}
+    {{- range sort (.ByType "page") "Params.weight" -}}
+      {{- if and (not $r) .Params.background -}}
+        {{- $r = partial "img.html" (dict "page" $page "src" .Params.background) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $r -}}

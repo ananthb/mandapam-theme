@@ -1,0 +1,13 @@
+{{- $p := . -}}
+<li class="programme">
+  <div class="programme__date"><b>{{ $p.Date.Format "2" }}</b><span>{{ $p.Date.Format "Jan" }}</span></div>
+  <div>
+    <h3><a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a></h3>
+    <small>
+      {{- with $p.Params.time }}{{ . }}{{ end }}
+      {{- with $p.Params.artists }}{{ if $p.Params.time }} · {{ end }}{{ delimit . ", " }}{{ end }}
+      {{- with $p.Params.venue }} · {{ . }}{{ end }}
+    </small>
+  </div>
+  {{- with $p.Params.entry }}<span class="programme__tag{{ if ne (lower .) "tickets" }} programme__tag--soft{{ end }}">{{ . }}</span>{{ end }}
+</li>

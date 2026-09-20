@@ -1,24 +1,12 @@
 {{ define "main" }}
-
-{{ partial "hero-image-setheight.html" (dict "background" .Params.heroBackground "heading" .Params.heroHeading "subheading" .Params.heroSubHeading "content" .)}}
-{{ if .Content }}
-<div class="container pt-6 pt-md-10">
-  <div class="row">
-    <div class="col-12">
-      <div class="page-intro">
-        {{ .Content }}
-      </div>
-    </div>
+{{ partial "page-head.html" (dict "page" . "kicker" .Params.kicker "heading" (.Params.heroHeading | default .Title) "subheading" (.Params.heroSubHeading | default .Params.heading)) }}
+{{- with .Content }}
+<div class="section section--tight"><div class="container prose">{{ . }}</div></div>
+{{- end }}
+<div class="section section--tight">
+  <div class="container grid grid--3">
+    {{- range .RegularPages.ByWeight }}{{ partial "page-card.html" . }}{{ end }}
   </div>
 </div>
-{{ end }}
-
-
-<div class="container pb-6 pt-6 pb-md-10 pt-md-10">
-  <div class="row">
-    {{ range .Pages.ByWeight }}
-    <div class="col-12 col-md-6 mb-2 ">{{ .Render "summary" }}</div>
-    {{ end }}
-  </div>
-</div>
+{{ partial "contact-section.html" . }}
 {{ end }}

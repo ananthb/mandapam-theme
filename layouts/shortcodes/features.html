@@ -1,0 +1,22 @@
+{{- /* Chips from front matter: `features` (what the venue has) and `rules`
+   (what it does not allow). Optional headings via params or defaults. */ -}}
+{{- $features := .Page.Params.features -}}
+{{- $rules := .Page.Params.rules -}}
+<div class="features">
+  {{- with $features }}
+  <div>
+    <h3>{{ $.Get "features_heading" | default "At a glance" }}</h3>
+    <ul class="chips">
+      {{- range . }}<li class="chip">{{ partial "icon.html" "check" }} {{ . }}</li>{{ end }}
+    </ul>
+  </div>
+  {{- end }}
+  {{- with $rules }}
+  <div>
+    <h3>{{ $.Get "rules_heading" | default "House rules" }}</h3>
+    <ul class="chips">
+      {{- range . }}<li class="chip chip--no">{{ partial "icon.html" "close" }} {{ . }}</li>{{ end }}
+    </ul>
+  </div>
+  {{- end }}
+</div>

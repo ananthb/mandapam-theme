@@ -1,126 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="{{ .Site.Language.Lang | default "en" }}">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>{{ block "title" . }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  {{ block "meta_tags" . }}
-  {{- $title := .Title -}}
-  {{- $description := .Description | default .Summary | default .Site.Params.homepage_meta_tags.meta_description | plainify | truncate 160 -}}
-  {{- $url := .Permalink -}}
-  {{- $image := "" -}}
-  {{- with .Params.heroBackground -}}
-    {{- $image = (resources.Get .).Permalink -}}
-  {{- else -}}
-    {{- with .Params.thumbnail -}}
-      {{- $image = (resources.Get .).Permalink -}}
-    {{- else -}}
-      {{- $image = $.Site.Params.homepage_meta_tags.meta_og_image -}}
-    {{- end -}}
-  {{- end -}}
-  <meta name="description" content="{{ $description }}">
-  <link rel="canonical" href="{{ $url }}">
-  <meta property="og:title" content="{{ $title }}">
-  <meta property="og:description" content="{{ $description }}">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="{{ $url }}">
-  <meta property="og:site_name" content="{{ .Site.Title }}">
-  {{- with $image }}
-  <meta property="og:image" content="{{ . }}">
-  <meta name="twitter:image" content="{{ . }}">
+  <title>{{ block "title" . }}{{ .Title }} · {{ .Site.Title }}{{ end }}</title>
+  {{ partial "meta.html" . }}
+  {{ partial "theme-vars.html" . }}
+  {{ $css := resources.Get "css/mandapam.css" }}
+  {{ if hugo.IsProduction }}{{ $css = $css | minify | fingerprint }}{{ end }}
+  <link rel="preload" href="{{ "fonts/fraunces-latin.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ "fonts/nunito-sans-latin.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}"{{ if hugo.IsProduction }} integrity="{{ $css.Data.Integrity }}"{{ end }}>
+  {{- $logo := resources.Get (.Site.Params.logo | default "logos/logo.png") }}
+  {{- with $logo }}
+  {{- $fav := .Resize "64x png" }}
+  <link rel="icon" href="{{ $fav.RelPermalink }}">
+  {{- $apple := .Fit "180x180 png" }}
+  <link rel="apple-touch-icon" href="{{ $apple.RelPermalink }}">
   {{- end }}
-  <meta name="twitter:card" content="{{ .Site.Params.homepage_meta_tags.meta_twitter_card | default "summary_large_image" }}">
-  {{- with .Site.Params.homepage_meta_tags.meta_twitter_site }}
-  <meta name="twitter:site" content="{{ . }}">
-  {{- end }}
-  <meta name="twitter:title" content="{{ $title }}">
-  <meta name="twitter:description" content="{{ $description }}">
-  {{ end }}
-
-  {{ with .Site.Params.google_analytics_id }}
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', '{{ . }}');
-
-    // Track contact link clicks
-    document.addEventListener('DOMContentLoaded', () => {
-      const links = document.querySelectorAll('.contact-links a');
-      links.forEach(link => {
-        link.addEventListener('click', (e) => {
-          gtag('event', 'conversion');
-        });
-      });
-    });
-  </script>
-  {{ end }}
-
-  {{ with .Site.Params.gtm_id }}
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','{{ . }}');</script>
-  <!-- End Google Tag Manager -->
-  {{ end }}
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Material+Icons&display=swap">
-
-  <link rel="preload" href="{{ .Site.BaseURL }}/fonts/AlaskaExtrabold.woff" as="font" type="font/woff" crossorigin>
-  <link rel="preload" href="{{ .Site.BaseURL }}/fonts/AlaskaExtrabold.woff2" as="font" type="font/woff2" crossorigin>
-
-  {{- $favicon := (resources.Get (default "logos/logo.png" .Site.Params.logo)).Resize "64x q100 #fff" -}}
-  <link rel="icon" href="{{ $favicon.RelPermalink }}">
-
-  {{ $style := resources.Get "scss/style.scss" }}
-  {{ $script := resources.Get "js/script.js" }}
-
-  {{ if hugo.IsProduction }}
-  {{ $prodStyle := $style | toCSS (dict "targetPath" "css/style.css" "enableSourceMap" false) | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $prodStyle.RelPermalink }}" integrity="{{ $prodStyle.Data.Integrity }}">
-  {{ $prodScript := $script | minify | fingerprint }}
-  <script type="module" src="{{ $prodScript.RelPermalink }}" integrity="{{ $prodScript.Data.Integrity }}"></script>
-
-  {{ else }}
-  {{ $devStyle := $style | toCSS (dict "targetPath" "css/style.css" "enableSourceMap" true) }}
-  <link rel="stylesheet" href="{{ $devStyle.RelPermalink }}">
-  <script type="module" src="{{ $script.RelPermalink }}"></script>
-  {{ end }}
-
-  {{ block "header_css" . }} {{ end }}
-  {{ block "header_js" . }} {{ end }}
+  {{ partial "jsonld.html" . }}
+  {{ partial "analytics.html" . }}
+  {{ block "header_css" . }}{{ end }}
+  {{ block "header_js" . }}{{ end }}
 </head>
-
-<body class='page {{ block "body_classes" . }}{{ end }}'>
-
-<a href="#main" class="sr-only sr-only-focusable">Skip to main content</a>
-
-{{ with .Site.Params.gtm_id }}
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ . }}"
-height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-{{ end }}
-
-{{ partial "main-menu-mobile.html" . }}
-<header>
-  {{ partial "header.html" . }}
-</header>
-<main id="main" class="wrapper">
-  {{ block "main" . }}
-  {{ end }}
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+{{ partial "header.html" . }}
+<main id="main">
+  {{ block "main" . }}{{ end }}
 </main>
-
 {{ partial "footer.html" . }}
-
+{{ partial "whatsapp-fab.html" . }}
+{{ $js := resources.Get "js/script.js" }}
+{{ if hugo.IsProduction }}{{ $js = $js | minify | fingerprint }}{{ end }}
+<script src="{{ $js.RelPermalink }}" defer{{ if hugo.IsProduction }} integrity="{{ $js.Data.Integrity }}"{{ end }}></script>
 </body>
 </html>

@@ -1,6 +1,4 @@
-{{ $htmlTable := .Inner | markdownify }}
-{{ $class := .Get 0 }}
-{{ $old := "<table>" }}
-{{ $new := printf "<table class=\"%s\">" $class }}
-{{ $htmlTable := replace $htmlTable $old $new }}
-{{ $htmlTable | safeHTML }}
+{{- /* Kept for older content: {{< table "classes" >}} markdown table {{< /table >}} */ -}}
+{{- $html := .Inner | markdownify -}}
+{{- with .Get 0 -}}{{- $html = replace $html "<table>" (printf `<table class="%s">` .) -}}{{- end -}}
+<div class="table-wrap">{{ $html | safeHTML }}</div>

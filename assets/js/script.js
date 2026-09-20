@@ -1,15 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const body = document.querySelector('body');
-    const menuTrigger = document.querySelector('#main-menu-mobile-toggle');
-    const menuContainer = document.querySelector('#main-menu-mobile');
-
-    if (menuTrigger && menuContainer) {
-        menuTrigger.addEventListener('click', () => {
-            menuContainer.classList.toggle('open');
-            menuTrigger.classList.toggle('is-active');
-            body.classList.toggle('lock-scroll');
-            const isOpen = menuContainer.classList.contains('open');
-            menuTrigger.setAttribute('aria-expanded', isOpen);
-        });
-    }
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('nav-mobile');
+  if (!toggle || !menu) return;
+  const set = (open) => {
+    menu.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+  };
+  toggle.addEventListener('click', () => set(!menu.classList.contains('open')));
+  menu.addEventListener('click', (e) => { if (e.target.closest('a')) set(false); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') set(false); });
 });

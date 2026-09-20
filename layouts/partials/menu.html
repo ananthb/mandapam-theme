@@ -1,0 +1,10 @@
+{{- $page := . -}}
+<ul>
+  {{- range .Site.Menus.main }}
+  {{- $active := or ($page.IsMenuCurrent "main" .) ($page.HasMenuCurrent "main" .) (eq $page.RelPermalink .URL) }}
+  {{- $external := or .Params.external (hasPrefix .URL "http") }}
+  <li{{ if $active }} class="active"{{ end }}>
+    <a href="{{ .URL }}"{{ if $external }} target="_blank" rel="noopener"{{ end }}{{ if $active }} aria-current="page"{{ end }}>{{ .Name }}</a>
+  </li>
+  {{- end }}
+</ul>

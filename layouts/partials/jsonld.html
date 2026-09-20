@@ -1,0 +1,30 @@
+{{- /* schema.org EventVenue from data/contact, on the home page only. */ -}}
+{{- if .IsHome -}}
+{{- with .Site.Data.contact -}}
+{{- $logo := "" -}}
+{{- with resources.Get ($.Site.Params.logo | default "logos/logo.png") -}}{{- $logo = .Permalink -}}{{- end -}}
+{{- $phones := slice -}}
+{{- range .phone -}}{{- $phones = $phones | append (replaceRE `\s+` "" .) -}}{{- end -}}
+{{- $same := slice -}}
+{{- range $k, $v := .socials -}}{{- $same = $same | append $v -}}{{- end -}}
+{{- $parts := slice -}}
+{{- range split (.address | default "") "\n" -}}
+  {{- $line := strings.TrimSpace . | strings.TrimSuffix "," -}}
+  {{- if $line -}}{{- $parts = $parts | append $line -}}{{- end -}}
+{{- end -}}
+{{- $address := delimit $parts ", " -}}
+{{- $ld := dict
+  "@context" "https://schema.org"
+  "@type" "EventVenue"
+  "name" (.businessName | default $.Site.Title)
+  "url" $.Site.BaseURL
+  "telephone" $phones
+  "email" .email
+  "sameAs" $same
+-}}
+{{- with $logo -}}{{- $ld = merge $ld (dict "image" . "logo" .) -}}{{- end -}}
+{{- with $address -}}{{- $ld = merge $ld (dict "address" (dict "@type" "PostalAddress" "streetAddress" .)) -}}{{- end -}}
+{{- with $.Site.Params.homepage_meta_tags.meta_description -}}{{- $ld = merge $ld (dict "description" (. | plainify | replaceRE `\s+` " " | strings.TrimSpace)) -}}{{- end -}}
+<script type="application/ld+json">{{ $ld | jsonify | safeJS }}</script>
+{{- end -}}
+{{- end -}}

@@ -1,4 +1,7 @@
 {{ define "main" }}
-{{ partial "hero-image-setheight.html" (dict "background" .Params.heroBackground "heading" .Params.heroHeading "subheading" .Params.heroSubHeading "section" .Section "content" .)}}
-{{.Content}}
+{{ partial "page-head.html" (dict "page" . "kicker" .Params.kicker) }}
+<div class="section section--tight">
+  <div class="prose">{{ .Content }}</div>
+</div>
+{{ partial "contact-section.html" . }}
 {{ end }}

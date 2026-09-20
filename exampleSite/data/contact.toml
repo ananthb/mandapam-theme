@@ -1,7 +1,9 @@
 phone = ["+91 44 2345 6789", "+91 98765 43210"]
 whatsapp = ["919876543210"]
 email = ["events@vasantamandapam.com", "info@vasantamandapam.com"]
-address = "12 Temple Road, Mylapore, Chennai 600 004, Tamil Nadu, India"
+address = """12 Temple Road,
+Mylapore,
+Chennai 600 004"""
 
 [socials]
   Instagram = "https://instagram.com/vasantamandapam"

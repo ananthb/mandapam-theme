@@ -1,0 +1,2 @@
+{{- /* dict: level ("h1"|"h2"|"h3"), text */ -}}
+{{- if eq .level "h1" }}<h1>{{ .text }}</h1>{{ else if eq .level "h3" }}<h3>{{ .text }}</h3>{{ else }}<h2>{{ .text }}</h2>{{ end -}}

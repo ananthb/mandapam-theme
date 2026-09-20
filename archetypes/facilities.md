@@ -1,8 +1,8 @@
----
-title: "{{ replace .Name "-" " " | title }}"
-heading: "Banner Heading"
-icon: event
-draft: false
-weight: 1
-images: ["images/dining.jpg"]
----
++++
+title = '{{ replace .Name "-" " " | title }}'
+heading = ''
+icon = 'lotus'
+weight = 1
+draft = false
+images = []
++++

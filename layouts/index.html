@@ -1,79 +1,72 @@
-{{ define "title" }}{{ .Site.Title }}{{ end}}
-
-{{ define "meta_tags" }}
-{{- $p := .Site.Params.homepage_meta_tags -}}
-<meta name="description" content="{{ $p.meta_description }}">
-<link rel="canonical" href="{{ .Permalink }}">
-<meta property="og:title" content="{{ $p.meta_og_title | default .Site.Title }}">
-<meta property="og:description" content="{{ $p.meta_og_description | default $p.meta_description }}">
-<meta property="og:type" content="{{ $p.meta_og_type | default "website" }}">
-<meta property="og:url" content="{{ $p.meta_og_url | default .Permalink }}">
-<meta property="og:site_name" content="{{ .Site.Title }}">
-{{- with $p.meta_og_image }}
-<meta property="og:image" content="{{ . }}">
-<meta name="twitter:image" content="{{ . }}">
-{{- end }}
-<meta name="twitter:card" content="{{ $p.meta_twitter_card | default "summary_large_image" }}">
-{{- with $p.meta_twitter_site }}
-<meta name="twitter:site" content="{{ . }}">
-{{- end }}
-{{- with $p.meta_twitter_creator }}
-<meta name="twitter:creator" content="{{ . }}">
-{{- end }}
-<meta name="twitter:title" content="{{ $p.meta_og_title | default .Site.Title }}">
-<meta name="twitter:description" content="{{ $p.meta_og_description | default $p.meta_description }}">
-{{ end }}
+{{ define "title" }}{{ .Site.Title }}{{ end }}
 
 {{ define "main" }}
+{{- $home := . -}}
+{{- $imgs := slice -}}
+{{- range $k := slice "heroLeftBackground" "heroRightBackground" "heroBackground" -}}
+  {{- with index $home.Params $k -}}
+    {{- with partial "img.html" (dict "page" $home "src" .) -}}{{- $imgs = $imgs | append . -}}{{- end -}}
+  {{- end -}}
+{{- end -}}
+{{ partial "hero.html" (dict
+  "page" .
+  "heading" (.Params.heroHeading | default .Site.Title)
+  "subheading" .Params.heroSubheading
+  "eyebrow" (.Params.heroEyebrow | default .Site.Params.hero_eyebrow)
+  "images" $imgs
+  "size" "full"
+  "cta" true
+  "level" "h1") }}
 
-{{ partial "hero-image-split-fullscreen.html" (dict "leftBackground" .Params.heroLeftBackground "heading" .Params.heroHeading "rightBackground" .Params.heroRightBackground "subheading" .Params.heroSubheading "content" .)}}
+{{- with .Site.Params.facts }}
+<section class="facts" aria-label="At a glance">
+  <div class="container">
+    <ul>
+      {{- range . }}
+      <li><b>{{ .value }}</b><span>{{ .label }}</span></li>
+      {{- end }}
+    </ul>
+  </div>
+</section>
+{{- end }}
+
+{{- $strips := slice -}}
+{{- with .Site.GetPage "/homepage" -}}
+  {{- $strips = sort (.Resources.ByType "page") "Params.weight" -}}
+{{- end -}}
+{{- $homepage := .Site.GetPage "/homepage" -}}
+{{- range $i, $s := first 1 $strips }}
+{{ partial "strip.html" (dict "page" $s "owner" $homepage "index" $i "level" "h2") }}
+{{- end }}
+
+{{- with .Site.GetPage "/services" }}
+{{- $services := .Resources.ByType "page" }}
+{{- $owner := . }}
+{{- with $services }}
+<section id="venues" class="section">
+  <div class="container">
+    <div class="section__head">
+      <div>
+        <span class="kicker">{{ $.Site.Params.services_kicker | default "Under one roof" }}</span>
+        <h2>{{ $.Site.Params.services_heading | default "What we offer" }}</h2>
+      </div>
+      {{- with $.Site.Params.services_intro }}<p>{{ . }}</p>{{ end }}
+    </div>
+    <div class="grid grid--3">
+      {{- range sort . ".Params.weight" }}
+      {{ partial "service-card.html" (dict "page" . "owner" $owner) }}
+      {{- end }}
+    </div>
+  </div>
+</section>
+{{- end }}
+{{- end }}
+
+{{ partial "latest-moments.html" . }}
+
+{{- range $i, $s := after 1 $strips }}
+{{ partial "strip.html" (dict "page" $s "owner" $homepage "index" (add $i 1) "level" "h2") }}
+{{- end }}
 
 {{ partial "contact-section.html" . }}
-
-{{ $headless := .Site.GetPage "/homepage" }}
-{{ $reusablePages := $headless.Resources.ByType "page" }}
-{{ range first 1 $reusablePages }}
-{{ $bg := (resources.Get .Params.background).Resize "1200x q90" }}
-<div id="home" class="strip bg-cover bg-overlay"
-style="background-image: url('{{ $bg.RelPermalink }}');">
-<div class="container pt-17 pb-17">
-  <div class="row">
-    <div class="col-12 col-md-6 p-1">
-      <h2 class="text-primary text-capitalize">{{ .Title }}</h2>
-      <p>{{ .Content }}</p>
-      <a class="btn btn-primary btn-lg" href="{{ .Params.buttonLink | relURL }}">{{ .Params.button }}</a>
-    </div>
-  </div>
-</div>
-</div>
-{{ end }}
-
-{{ $services := .Site.GetPage "/services" }}
-<div class="container pt-8 pb-8 pb-md-14 pt-md-14">
-  <div class="row justify-content-center">
-    <div class="col-12">
-      <h2 class="text-center mb-3">{{ default "Our Services" .Site.Params.services_heading }}</h2>
-    </div>
-    {{ range (sort $services.Resources ".Params.weight") }}
-    <div class="col-12 col-md-4 mb-1">
-      {{ .Render "summary" }}
-    </div>
-    {{ end }}
-  </div>
-</div>
-
-{{ range first 1 (after 1 $reusablePages) }}
-<div class="strip bg-cover" style='background-image: url("{{ .Params.background | relURL }}");'>
-  <div class="container pt-8 pb-8 pb-md-12 pt-md-12">
-    <div class="row justify-content-center">
-      <div class="col-12 col-md-8 text-center text-white">
-        <h2 class="text-primary text-capitalize">{{ .Title }}</h2>
-        <p>{{ .Content }}</p>
-        <a class="btn btn-primary btn-lg" href="{{ .Params.buttonLink | relURL }}">{{ .Params.button }}</a>
-      </div>
-    </div>
-  </div>
-</div>
-{{ end }}
-
 {{ end }}

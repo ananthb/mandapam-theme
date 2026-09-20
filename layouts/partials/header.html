@@ -1,14 +1,26 @@
-<div class="header header-absolute">
+{{- $logo := resources.Get (.Site.Params.logo | default "logos/logo.png") -}}
+<header class="site-header">
   <div class="container">
-    <div class="logo">
-      <a href="{{ .Site.BaseURL }}">
-        {{- $logo := (resources.Get (default "logos/logo.png" .Site.Params.logo)).Resize "400x q100" -}}
-        <img alt="{{ .Site.Title }} Logo" src="{{ $logo.RelPermalink }}" width="{{ $logo.Width }}"
-          height="{{ $logo.Height }}">
-      </a>
-    </div>
-    <a href="/#contact" class="btn btn-primary d-block d-sm-none">Contact Us</a>
-    {{ partial "main-menu.html" . }}
-    {{ partialCached "hamburger.html" . }}
+    <a class="brand" href="{{ "/" | relURL }}">
+      {{- with $logo }}
+      {{- $l := .Resize "160x png" }}
+      <img src="{{ $l.RelPermalink }}" width="{{ $l.Width }}" height="{{ $l.Height }}" alt="{{ $.Site.Title }}">
+      {{- else }}
+      <span>{{ .Site.Title }}</span>
+      {{- end }}
+    </a>
+    <nav class="nav" aria-label="Main">
+      {{ partial "menu.html" . }}
+    </nav>
+    {{- with partial "whatsapp.html" . }}
+    <a class="btn btn--accent btn--sm header-cta" href="{{ . }}" target="_blank" rel="noopener">{{ partial "icon.html" "whatsapp" }} WhatsApp us</a>
+    {{- end }}
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-mobile">
+      <span class="i-menu">{{ partial "icon.html" "menu" }}</span>
+      <span class="i-close">{{ partial "icon.html" "close" }}</span>
+    </button>
   </div>
-</div>
+  <nav class="nav-mobile" id="nav-mobile" aria-label="Main">
+    {{ partial "menu.html" . }}
+  </nav>
+</header>

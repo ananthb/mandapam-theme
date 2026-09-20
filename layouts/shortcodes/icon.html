@@ -1,1 +1,1 @@
-<i class="material-icons" aria-hidden="true">{{ .Get 0 }}</i>
+{{ partial "icon.html" (.Get 0) | replaceRE `class="icon"` `class="icon icon--inline"` | safeHTML }}

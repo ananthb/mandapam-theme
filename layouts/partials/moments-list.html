@@ -1,0 +1,42 @@
+{{- $p := . -}}
+{{ partial "page-head.html" (dict "page" $p "kicker" $p.Params.kicker) }}
+{{- with $p.Content }}
+<div class="section section--tight"><div class="container prose">{{ . }}</div></div>
+{{- end }}
+{{- $now := now.Unix -}}
+{{- $upcoming := slice -}}
+{{- $past := slice -}}
+{{- range $p.RegularPages -}}
+  {{- if gt .Date.Unix $now }}{{ $upcoming = $upcoming | append . }}{{ else }}{{ $past = $past | append . }}{{ end -}}
+{{- end -}}
+<div class="section section--tight">
+  <div class="container">
+    {{- with $upcoming }}
+    <div class="year">
+      <h2>{{ $.Site.Params.upcoming_heading | default "Coming up" }}</h2>
+      <ul class="programmes">
+        {{- range sort . "Date" "asc" }}{{ partial "programme-row.html" . }}{{ end }}
+      </ul>
+    </div>
+    {{- end }}
+    {{- $years := slice -}}
+    {{- range $past }}{{ $years = $years | append (.Date.Format "2006") }}{{ end -}}
+    {{- $years = uniq $years -}}
+    {{- $byYear := and (gt (len $years) 1) (not (in $years "0001")) -}}
+    {{- if $byYear }}
+      {{- range $years }}
+      {{- $y := . }}
+      <div class="year">
+        <h2>{{ $y }}</h2>
+        <div class="grid grid--3">
+          {{- range sort (where $past "Date.Year" (int $y)) "Date" "desc" }}{{ partial "moment-card.html" . }}{{ end }}
+        </div>
+      </div>
+      {{- end }}
+    {{- else }}
+    <div class="grid grid--3">
+      {{- range sort $past "Date" "desc" }}{{ partial "moment-card.html" . }}{{ end }}
+    </div>
+    {{- end }}
+  </div>
+</div>

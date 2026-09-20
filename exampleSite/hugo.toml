@@ -1,9 +1,11 @@
 baseURL = "https://example.com/"
-languageCode = "en-us"
+languageCode = "en-in"
 title = "Vasanta Mandapam"
 theme = ["github.com/ananthb/mandapam-theme"]
 
 enableGitInfo = true
+disableKinds = ["taxonomy", "term"]
+buildFuture = true   # programmes are dated in the future
 
 [markup]
   [markup.goldmark]
@@ -12,16 +14,33 @@ enableGitInfo = true
 
 [params]
   logo = "logos/logo.png"
-  services_heading = "What We Offer"
+  hero_eyebrow = "வசந்தா மண்டபம் · மயிலாப்பூர்"
+  hero_button = "See the venue"
+  hero_button_link = "/venue/"
+  whatsapp_message = "Hi, I'd like to check availability at Vasanta Mandapam for "
+  services_heading = "What we offer"
+  moments_heading = "Recent events"
   google_analytics_id = ""
   gtm_id = ""
-  github_repository = "ananthb/mandapam-theme"
+
+  [[params.facts]]
+    value = "500"
+    label = "seated · 700 standing"
+  [[params.facts]]
+    value = "300"
+    label = "dining hall seats"
+  [[params.facts]]
+    value = "2005"
+    label = "on Temple Road since"
+  [[params.facts]]
+    value = "1,000+"
+    label = "weddings hosted"
+
   [params.homepage_meta_tags]
     meta_description = "Vasanta Mandapam — a grand wedding and event venue in the heart of the city, with elegant halls, rooftop dining, and full-service event management."
     meta_og_title = "Vasanta Mandapam"
     meta_og_type = "website"
     meta_og_url = "https://example.com"
-    meta_og_image = "https://example.com/images/venue.jpg"
     meta_og_description = "Vasanta Mandapam — a grand wedding and event venue in the heart of the city."
     meta_twitter_card = "summary_large_image"
     meta_twitter_site = "@vasantamandapam"
@@ -41,13 +60,16 @@ enableGitInfo = true
     url = "/facilities/"
     weight = 30
   [[menus.main]]
-    name = "Gallery"
-    url = "/gallery/"
+    name = "Moments"
+    url = "/moments/"
     weight = 40
   [[menus.main]]
-    name = "Contact Us"
+    name = "Contact"
     url = "/#contact"
     weight = 50
+
+[permalinks]
+  moments = "/moments/:year/:slug/"
 
 [module]
   [[module.imports]]

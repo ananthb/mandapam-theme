@@ -1,0 +1,17 @@
+{{- $p := . -}}
+{{- $cover := partial "cover.html" $p -}}
+{{- $photos := $p.Params.photos | default $p.Params.images -}}
+{{- $n := 0 -}}{{- with $photos }}{{ $n = len . }}{{ end -}}
+<article class="moment">
+  {{- with $cover }}
+  {{ partial "picture.html" (dict "img" . "alt" "" "sizes" "(min-width: 900px) 33vw, (min-width: 560px) 50vw, 100vw" "widths" (slice 480 800 1200)) }}
+  {{- end }}
+  <div class="moment__body">
+    <div class="moment__date">
+      {{- if not $p.Date.IsZero }}{{ $p.Date.Format "2 Jan 2006" }}{{ end }}
+      {{- with $p.Params.venue }} · {{ . }}{{ end }}
+    </div>
+    <h3><a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a></h3>
+    {{- if gt $n 0 }}<small>{{ $n }} photo{{ if ne $n 1 }}s{{ end }}</small>{{ end }}
+  </div>
+</article>

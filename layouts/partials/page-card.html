@@ -1,0 +1,12 @@
+{{- $p := . -}}
+{{- $cover := partial "cover.html" $p -}}
+<article class="card">
+  {{- with $cover }}
+  <div class="card__media">{{ partial "picture.html" (dict "img" . "alt" $p.Title "sizes" "(min-width: 900px) 33vw, 100vw" "widths" (slice 480 800)) }}</div>
+  {{- end }}
+  <div class="card__body">
+    {{- if not $cover }}<div class="card__icon">{{ partial "icon.html" $p.Params.icon }}</div>{{ end }}
+    <h3><a href="{{ $p.RelPermalink }}">{{ $p.Params.heading | default $p.Title }}</a></h3>
+    {{- with $p.Summary }}<p class="card__text">{{ . | plainify | truncate 140 }}</p>{{ end }}
+  </div>
+</article>

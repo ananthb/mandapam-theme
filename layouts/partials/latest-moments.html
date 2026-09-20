@@ -1,0 +1,41 @@
+{{- $all := partial "moments-pages.html" . -}}
+{{- $now := now.Unix -}}
+{{- $upcoming := slice -}}
+{{- $past := slice -}}
+{{- range $all -}}
+  {{- if gt .Date.Unix $now }}{{ $upcoming = $upcoming | append . }}{{ else }}{{ $past = $past | append . }}{{ end -}}
+{{- end -}}
+{{- $section := "" -}}
+{{- with index $all 0 }}{{ $section = .FirstSection }}{{ end -}}
+{{- with $upcoming }}
+<section class="section section--tight">
+  <div class="container">
+    <div class="section__head">
+      <div>
+        <span class="kicker">{{ $.Site.Params.upcoming_kicker | default "Coming up" }}</span>
+        <h2>{{ $.Site.Params.upcoming_heading | default "Upcoming programmes" }}</h2>
+      </div>
+      {{- with $section }}<a class="btn btn--ghost btn--sm" href="{{ .RelPermalink }}">All programmes {{ partial "icon.html" "arrow" }}</a>{{ end }}
+    </div>
+    <ul class="programmes">
+      {{- range first 4 (sort . "Date" "asc") }}{{ partial "programme-row.html" . }}{{ end }}
+    </ul>
+  </div>
+</section>
+{{- end }}
+{{- with $past }}
+<section class="section">
+  <div class="container">
+    <div class="section__head">
+      <div>
+        <span class="kicker">{{ $.Site.Params.moments_kicker | default "Moments" }}</span>
+        <h2>{{ $.Site.Params.moments_heading | default "Recent events" }}</h2>
+      </div>
+      {{- with $section }}<a class="btn btn--ghost btn--sm" href="{{ .RelPermalink }}">{{ $.Site.Params.moments_all | default "See all" }} {{ partial "icon.html" "arrow" }}</a>{{ end }}
+    </div>
+    <div class="grid grid--3">
+      {{- range first 3 . }}{{ partial "moment-card.html" . }}{{ end }}
+    </div>
+  </div>
+</section>
+{{- end }}

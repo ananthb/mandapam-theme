@@ -15,7 +15,6 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
 
-        vendoredFiles = "assets/scss/bootstrap/.*";
 
         pre-commit = git-hooks.lib.${system}.run {
           src = ./.;
@@ -26,11 +25,9 @@
             detect-private-keys.enable = true;
             end-of-file-fixer = {
               enable = true;
-              excludes = [ vendoredFiles ];
             };
             trim-trailing-whitespace = {
               enable = true;
-              excludes = [ vendoredFiles ];
             };
           };
         };
@@ -42,7 +39,7 @@
           version = if (self ? shortRev) then self.shortRev else "dev";
           src = ./.;
 
-          nativeBuildInputs = [ pkgs.hugo pkgs.dart-sass pkgs.go pkgs.git ];
+          nativeBuildInputs = [ pkgs.hugo pkgs.go pkgs.git ];
 
           buildPhase = ''
             export HOME=$TMPDIR
@@ -66,7 +63,6 @@
             pkgs.git
             pkgs.go
             pkgs.hugo
-            pkgs.dart-sass
             pkgs.nodejs
             pkgs.playwright-driver.browsers
           ];
