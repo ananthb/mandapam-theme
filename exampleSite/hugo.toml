@@ -19,7 +19,7 @@ buildFuture = true   # programmes are dated in the future
   hero_button_link = "/venue/"
   whatsapp_message = "Hi, I'd like to check availability at Vasanta Mandapam for "
   services_heading = "What we offer"
-  moments_heading = "Recent celebrations"
+  moments_heading = "Recent events"
   google_analytics_id = ""
   gtm_id = ""
 

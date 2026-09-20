@@ -65,7 +65,7 @@ Needs Hugo extended 0.128 or later (WebP image processing).
   whatsapp_message = "Hi, I'd like to check availability at Shakthi Palace for "
   services_kicker = "Under one roof"
   services_heading = "The venues"
-  moments_heading = "Recent celebrations"
+  moments_heading = "Recent events"
   upcoming_heading = "Coming up"
   contact_heading = "Get in touch"
   google_analytics_id = ""

@@ -29,7 +29,7 @@
     <div class="section__head">
       <div>
         <span class="kicker">{{ $.Site.Params.moments_kicker | default "Moments" }}</span>
-        <h2>{{ $.Site.Params.moments_heading | default "Recent celebrations" }}</h2>
+        <h2>{{ $.Site.Params.moments_heading | default "Recent events" }}</h2>
       </div>
       {{- with $section }}<a class="btn btn--ghost btn--sm" href="{{ .RelPermalink }}">{{ $.Site.Params.moments_all | default "See all" }} {{ partial "icon.html" "arrow" }}</a>{{ end }}
     </div>
