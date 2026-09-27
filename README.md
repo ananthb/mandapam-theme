@@ -44,7 +44,7 @@ typefaces, one stylesheet.
 ```toml
 [module]
   [[module.imports]]
-    path = "github.com/ananthb/mandapam-theme"
+    path = "github.com/calculon-tech/mandapam-theme"
 ```
 
 ```bash

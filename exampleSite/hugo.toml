@@ -1,7 +1,7 @@
 baseURL = "https://example.com/"
 languageCode = "en-in"
 title = "Vasanta Mandapam"
-theme = ["github.com/ananthb/mandapam-theme"]
+theme = ["github.com/calculon-tech/mandapam-theme"]
 
 enableGitInfo = true
 disableKinds = ["taxonomy", "term"]
@@ -73,4 +73,4 @@ buildFuture = true   # programmes are dated in the future
 
 [module]
   [[module.imports]]
-    path = "github.com/ananthb/mandapam-theme"
+    path = "github.com/calculon-tech/mandapam-theme"

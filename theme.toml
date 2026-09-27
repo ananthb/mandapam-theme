@@ -1,8 +1,8 @@
 name = "Mandapam"
 license = "MIT"
-licenselink = "https://github.com/ananthb/mandapam-theme/blob/main/LICENSE"
+licenselink = "https://github.com/calculon-tech/mandapam-theme/blob/main/LICENSE"
 description = "A photo-led, WhatsApp-first Hugo theme for wedding halls, auditoriums and event venues"
-homepage = "https://github.com/ananthb/mandapam-theme"
+homepage = "https://github.com/calculon-tech/mandapam-theme"
 min_version = "0.128.0"
 
 [author]
